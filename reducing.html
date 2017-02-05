@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reducing &mdash; Lua Functional 0.1.3 documentation</title>
+    <title>Reducing &#8212; Lua Functional 0.1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
     <link rel="up" title="API Reference" href="reference.html" />
     <link rel="next" title="Transformations" href="transformations.html" />
@@ -92,15 +94,15 @@ iteration</li>
 <p>The function reduces the iterator from left to right using the binary
 operator <strong>accfun</strong> and the initial value <strong>initval</strong>.
 Equivalent to:</p>
-<div class="highlight-python"><div class="highlight"><pre>local val = initval
-for _k, ... in gen, param, state do
-    val = accfun(val, ...)
-end
-return val
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">val</span> <span class="o">=</span> <span class="n">initval</span>
+<span class="k">for</span> <span class="n">_k</span><span class="p">,</span> <span class="o">...</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span> <span class="n">do</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">accfun</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">end</span>
+<span class="k">return</span> <span class="n">val</span>
 </pre></div>
 </div>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
 <span class="mi">15</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="p">.</span><span class="n">add</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
@@ -137,7 +139,7 @@ return val
 <p>Return a number of elements in <code class="docutils literal"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.
 This function is equivalent to <code class="docutils literal"><span class="pre">#obj</span></code> for basic array and string iterators.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
 <span class="mi">5</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({}))</span>
@@ -172,7 +174,7 @@ basic array and string iterators.</p>
 </table>
 <p>The function reduces the iterator from left to right using <code class="docutils literal"><span class="pre">table.insert</span></code>.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">totable</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">abcdef&quot;</span><span class="p">)</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">totable</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">abcdef&quot;</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="o">#</span><span class="n">tab</span><span class="p">)</span>
 <span class="n">table</span> <span class="mi">6</span>
 <span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">tab</span><span class="p">)</span>
@@ -200,7 +202,7 @@ basic array and string iterators.</p>
 <p>The function reduces the iterator from left to right using
 <code class="docutils literal"><span class="pre">tab[val1]</span> <span class="pre">=</span> <span class="pre">val2</span></code> expression.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">tomap</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="s1">&#39;</span><span class="s">abcdef&#39;</span><span class="p">))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">tomap</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="s1">&#39;</span><span class="s">abcdef&#39;</span><span class="p">))</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="o">#</span><span class="n">tab</span><span class="p">)</span>
 <span class="n">table</span>   <span class="mi">6</span>
 <span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">iter</span><span class="p">(</span><span class="n">tab</span><span class="p">))</span>
@@ -225,7 +227,7 @@ basic array and string iterators.</p>
 <dd><p>The function takes two iterators and returns <code class="docutils literal"><span class="pre">true</span></code> if the first iterator
 is a prefix of the second.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_prefix_of</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">}))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_prefix_of</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">}))</span>
 <span class="kc">true</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_prefix_of</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
@@ -250,14 +252,14 @@ is a prefix of the second.</p>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>&gt; print(is_null({&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;}))
-false
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_null</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
+<span class="n">false</span>
 
-&gt; print(is_null({}))
-true
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_null</span><span class="p">({}))</span>
+<span class="n">true</span>
 
-&gt; print(is_null(range(0)))
-true
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_null</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+<span class="n">true</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -277,7 +279,7 @@ true
 </table>
 <p>Returns true if all return values of iterator satisfy the <strong>predicate</strong>.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">}))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">}))</span>
 <span class="kc">true</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">}))</span>
@@ -289,7 +291,7 @@ true
 <dl class="function">
 <dt id="fun.every">
 <code class="descclassname">fun.</code><code class="descname">every</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.every" title="Permalink to this definition">¶</a></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.every" title="fun.every"><code class="xref py py-func docutils literal"><span class="pre">every()</span></code></a>.</p>
+<dd><p>An alias for <a class="reference internal" href="#fun.all" title="fun.all"><code class="xref py py-func docutils literal"><span class="pre">all()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -309,7 +311,7 @@ true
 <strong>predicate</strong>. The iteration stops on the first such value. Therefore,
 infinity iterators that have at least one satisfying value might work.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">}))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">}))</span>
 <span class="kc">false</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">}))</span>
@@ -333,12 +335,12 @@ infinity iterators that have at least one satisfying value might work.</p>
 <dt>
 <code class="descname">iterator:sum()</code></dt>
 <dd><p>Sum up all iteration values. An optimized alias for:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For an empty iterator <code class="docutils literal"><span class="pre">0</span></code> is returned.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
 <span class="mi">15</span>
 </pre></div>
 </div>
@@ -350,12 +352,12 @@ infinity iterators that have at least one satisfying value might work.</p>
 <dt>
 <code class="descname">iterator:product()</code></dt>
 <dd><p>Multiply all iteration values. An optimized alias for:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For an empty iterator <code class="docutils literal"><span class="pre">1</span></code> is returned.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
 <span class="mi">120</span>
 </pre></div>
 </div>
@@ -366,11 +368,11 @@ infinity iterators that have at least one satisfying value might work.</p>
 <code class="descclassname">fun.</code><code class="descname">min</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.min" title="Permalink to this definition">¶</a></dt>
 <dt>
 <code class="descname">iterator:min()</code></dt>
-<dd><p>Return a maximum value from the iterator using <code class="xref py py-func docutils literal"><span class="pre">operator.min()</span></code> or <code class="docutils literal"><span class="pre">&lt;</span></code>
+<dd><p>Return a minimum value from the iterator using <code class="xref py py-func docutils literal"><span class="pre">operator.min()</span></code> or <code class="docutils literal"><span class="pre">&lt;</span></code>
 for numbers and other types respectivly. The iterator must be
 non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">1</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">f&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
@@ -396,7 +398,7 @@ non-null, otherwise an error is raised.</p>
 <dd><p>Return a minimum value from the iterator using the <strong>cmp</strong> as a <code class="docutils literal"><span class="pre">&lt;</span></code>
 operator. The iterator must be non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="k">function</span> <span class="nf">min_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">b</span> <span class="k">then</span> <span class="k">return</span> <span class="n">a</span> <span class="k">else</span> <span class="k">return</span> <span class="n">b</span> <span class="k">end</span> <span class="k">end</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="k">function</span> <span class="nf">min_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">b</span> <span class="k">then</span> <span class="k">return</span> <span class="n">a</span> <span class="k">else</span> <span class="k">return</span> <span class="n">b</span> <span class="k">end</span> <span class="k">end</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min_by</span><span class="p">(</span><span class="n">min_cmp</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">9</span>
 </pre></div>
@@ -418,7 +420,7 @@ operator. The iterator must be non-null, otherwise an error is raised.</p>
 for numbers and other types respectivly.</p>
 <p>The iterator must be non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">9</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">f&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
@@ -444,7 +446,7 @@ for numbers and other types respectivly.</p>
 <dd><p>Return a maximum value from the iterator using the <strong>cmp</strong> as a <cite>&gt;</cite>
 operator. The iterator must be non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="k">function</span> <span class="nf">max_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">b</span> <span class="k">then</span> <span class="k">return</span> <span class="n">a</span> <span class="k">else</span> <span class="k">return</span> <span class="n">b</span> <span class="k">end</span> <span class="k">end</span>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="k">function</span> <span class="nf">max_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">b</span> <span class="k">then</span> <span class="k">return</span> <span class="n">a</span> <span class="k">else</span> <span class="k">return</span> <span class="n">b</span> <span class="k">end</span> <span class="k">end</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max_by</span><span class="p">(</span><span class="n">max_cmp</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">1</span>
 </pre></div>
@@ -474,9 +476,20 @@ operator. The iterator must be non-null, otherwise an error is raised.</p>
 
       </div>
 
+
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2013-2016, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+        &#169; Copyright 2013-2016, Roman Tsisyk.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
     </div>
+    <script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45899190-2', 'auto');
+ga('send', 'pageview');
+    </script>
+
   </body>
 </html>

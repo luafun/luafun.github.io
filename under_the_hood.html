@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Under the Hood &mdash; Lua Functional 0.1.3 documentation</title>
+    <title>Under the Hood &#8212; Lua Functional 0.1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
     <link rel="next" title="About" href="about.html" />
     <link rel="prev" title="Operators" href="operators.html" /> 
@@ -60,8 +62,8 @@ takes an iterator and returns a new iteraror(s). Iterators all the way down!
 Lua functions. Have you ever tried to call, say, <code class="xref py py-func docutils literal"><span class="pre">ipairs()</span></code> function
 without using it inside a <code class="docutils literal"><span class="pre">for</span></code> loop? Try to do that on any Lua
 implementation:</p>
-<div class="highlight-lua" id="iterator-triplet"><div class="highlight"><pre>&gt; =ipairs({&#39;a&#39;, &#39;b&#39;, &#39;c&#39;})
-function: builtin#6     table: 0x40f80e38       0
+<div class="highlight-bash" id="iterator-triplet"><div class="highlight"><pre><span></span>&gt; <span class="o">=</span>ipairs<span class="o">({</span><span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;b&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">})</span>
+<span class="k">function</span>: builtin#6     table: 0x40f80e38       0
 </pre></div>
 </div>
 <p>The function returned three strange values which look useless without a <code class="docutils literal"><span class="pre">for</span></code>
@@ -81,7 +83,7 @@ For example, an array index for <code class="docutils literal"><span class="pre"
 </dl>
 <p>Try to call <code class="docutils literal"><span class="pre">gen</span></code> function manually:</p>
 <blockquote>
-<div><div class="highlight-lua"><div class="highlight"><pre><span class="o">&gt;</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="nb">ipairs</span><span class="p">({</span><span class="s1">&#39;</span><span class="s">a&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">b&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">c&#39;</span><span class="p">})</span>
+<div><div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="nb">ipairs</span><span class="p">({</span><span class="s1">&#39;</span><span class="s">a&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">b&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">c&#39;</span><span class="p">})</span>
 <span class="o">&gt;</span> <span class="o">=</span><span class="n">gen</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 <span class="mi">1</span>       <span class="n">a</span>
 </pre></div>
@@ -97,16 +99,16 @@ It is just a nice trick to get <code class="docutils literal"><span class="pre">
 <div class="section" id="iterations">
 <h2>Iterations<a class="headerlink" href="#iterations" title="Permalink to this headline">¶</a></h2>
 <p>What happens when you type the following code into a Lua console:</p>
-<div class="highlight-python"><div class="highlight"><pre>for _it, x in ipairs({&#39;a&#39;, &#39;b&#39;, &#39;c&#39;}) do print(x) end
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">})</span> <span class="n">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">end</span>
 </pre></div>
 </div>
 <p>According to Lua reference manual <a class="footnote-reference" href="#lua-for" id="id2">[2]</a> the code above is equivalent to:</p>
-<div class="highlight-python"><div class="highlight"><pre>do
+<div class="highlight-default"><div class="highlight"><pre><span></span>do
     -- Initialize the iterator
     local gen, param, state = ipairs({&#39;a&#39;, &#39;b&#39;, &#39;c&#39;})
     while true do
         -- Next iteration
-        local state, var_1, ···, var_n = f(param, state)
+        local state, var_1, ···, var_n = gen(param, state)
         if state == nil then break end
         -- Assign values to our variables
         _it = state
@@ -238,9 +240,20 @@ All of these concepts make the foundation for functional programming.</p>
 
       </div>
 
+
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2013-2016, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+        &#169; Copyright 2013-2016, Roman Tsisyk.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
     </div>
+    <script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45899190-2', 'auto');
+ga('send', 'pageview');
+    </script>
+
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Getting Started &mdash; Lua Functional 0.1.3 documentation</title>
+    <title>Getting Started &#8212; Lua Functional 0.1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
     <link rel="next" title="API Reference" href="reference.html" />
     <link rel="prev" title="Introduction" href="intro.html" /> 
@@ -91,22 +93,22 @@ documentation from source files.</p>
 <h3><a class="toc-backref" href="#id4">From Sources</a><a class="headerlink" href="#from-sources" title="Permalink to this headline">¶</a></h3>
 <p>1. Clone LuaJIT git repository. Please note that <strong>v2.1</strong> branch is needed.
 You can always select this branch using <code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">v2.1</span></code>.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone http://luajit.org/git/luajit-2.0.git -b v2.1 luajit-2.1
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git clone http://luajit.org/git/luajit-2.0.git -b v2.1 luajit-2.1
 Cloning into <span class="s1">&#39;luajit-2.1&#39;</span>...
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>Compile LuaJIT</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>luajit-2.1/
-luajit-2.1 <span class="nv">$ </span>make -j8
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> luajit-2.1/
+luajit-2.1 $ make -j8
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li>Install LuaJIT</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>luajit-2.1 <span class="nv">$ </span>make install
-luajit-2.1 <span class="nv">$ </span>ln -s /usr/local/bin/luajit-2.1.0-alpha /usr/local/bin/luajit
+<div class="highlight-bash"><div class="highlight"><pre><span></span>luajit-2.1 $ make install
+luajit-2.1 $ ln -s /usr/local/bin/luajit-2.1.0-alpha /usr/local/bin/luajit
 </pre></div>
 </div>
 <p>Install operation might require root permissions. However, you can install
@@ -121,7 +123,7 @@ Your favorite package manager may also have LuaJIT packages.</p>
 <div class="section" id="running-luajit">
 <h3><a class="toc-backref" href="#id6">Running LuaJIT</a><a class="headerlink" href="#running-luajit" title="Permalink to this headline">¶</a></h3>
 <p>Ensure that freshly installed LuaJIT works:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>luajit
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ luajit
 LuaJIT 2.1.0-alpha -- Copyright <span class="o">(</span>C<span class="o">)</span> 2005-2013 Mike Pall. http://luajit.org/
 JIT: ON SSE2 SSE3 SSE4.1 fold cse dce fwd dse narrow loop abc sink fuse
 &gt; <span class="o">=</span> <span class="m">2</span> + 2
@@ -129,8 +131,8 @@ JIT: ON SSE2 SSE3 SSE4.1 fold cse dce fwd dse narrow loop abc sink fuse
 </pre></div>
 </div>
 <p>It is good idea to use LuaJIT CLI under <code class="docutils literal"><span class="pre">rlwrap</span></code> (on nix platforms):</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">alias </span><span class="nv">luajit</span><span class="o">=</span><span class="s2">&quot;rlwrap luajit&quot;</span>
-<span class="nv">$ </span>luajit
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">luajit</span><span class="o">=</span><span class="s2">&quot;rlwrap luajit&quot;</span>
+$ luajit
 LuaJIT 2.1.0-alpha -- Copyright <span class="o">(</span>C<span class="o">)</span> 2005-2013 Mike Pall. http://luajit.org/
 JIT: ON SSE2 SSE3 SSE4.1 fold cse dce fwd dse narrow loop abc sink fuse
 &gt; <span class="o">=</span> <span class="m">2</span> + 2
@@ -151,15 +153,15 @@ JIT: ON SSE2 SSE3 SSE4.1 fold cse dce fwd dse narrow loop abc sink fuse
 <ol class="arabic simple">
 <li>Clone Lua Fun repository:</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>git clone git://github.com/rtsisyk/luafun.git
-<span class="nv">$ </span><span class="nb">cd </span>luafun
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git://github.com/rtsisyk/luafun.git
+$ <span class="nb">cd</span> luafun
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>Run tests (optional):</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>luafun <span class="nv">$ </span><span class="nb">cd </span>tests
-luafun/tests <span class="nv">$ </span>./runtest *.lua
+<div class="highlight-bash"><div class="highlight"><pre><span></span>luafun $ <span class="nb">cd</span> tests
+luafun/tests $ ./runtest *.lua
 Testing basic.lua
 Testing compositions.lua
 Testing filters.lua
@@ -174,7 +176,7 @@ All tests have passed!
 <div class="section" id="using-wget">
 <h3><a class="toc-backref" href="#id10">Using wget</a><a class="headerlink" href="#using-wget" title="Permalink to this headline">¶</a></h3>
 <p>Just download <a class="reference external" href="https://raw.github.com/rtsisyk/luafun/master/fun.lua">https://raw.github.com/rtsisyk/luafun/master/fun.lua</a> file:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>wget https://raw.github.com/rtsisyk/luafun/master/fun.lua
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ wget https://raw.github.com/rtsisyk/luafun/master/fun.lua
 </pre></div>
 </div>
 </div>
@@ -182,7 +184,7 @@ All tests have passed!
 <div class="section" id="using-the-library">
 <h2><a class="toc-backref" href="#id11">Using the Library</a><a class="headerlink" href="#using-the-library" title="Permalink to this headline">¶</a></h2>
 <p>Try to run LuaJIT in the same directory where <code class="docutils literal"><span class="pre">fun.lua</span></code> file is located:</p>
-<div class="highlight-bash"><div class="highlight"><pre> luafun <span class="nv">$ </span>luajit
+<div class="highlight-bash"><div class="highlight"><pre><span></span> luafun $ luajit
  LuaJIT 2.1.0-alpha -- Copyright <span class="o">(</span>C<span class="o">)</span> 2005-2013 Mike Pall. http://luajit.org/
  JIT: ON SSE2 SSE3 fold cse dce fwd dse narrow loop abc sink fuse
 <span class="hll"> &gt; <span class="nv">fun</span> <span class="o">=</span> require <span class="s1">&#39;fun&#39;</span>
@@ -198,7 +200,7 @@ you need to configure you Package Path (<code class="docutils literal"><span cla
 <a class="reference external" href="http://lua-users.org/wiki/PackagePath">Lua Wiki</a> for additional information.</p>
 <p><strong>Lua Fun</strong> designed to be small ubiquitous library. It is a good idea to import
 all library functions to the global table:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="hll"> &gt; <span class="k">for</span> k, v in pairs<span class="o">(</span>require <span class="s2">&quot;fun&quot;</span><span class="o">)</span> <span class="k">do</span> _G<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> v end -- import fun.*
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="hll"> &gt; <span class="k">for</span> k, v in pairs<span class="o">(</span>require <span class="s2">&quot;fun&quot;</span><span class="o">)</span> <span class="k">do</span> _G<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> v end -- import fun.*
 </span> &gt; <span class="k">for</span> _k, a in range<span class="o">(</span>3<span class="o">)</span> <span class="k">do</span> print<span class="o">(</span>a<span class="o">)</span> end
  0
  1
@@ -206,7 +208,7 @@ all library functions to the global table:</p>
 </pre></div>
 </div>
 <p><strong>Lua Fun</strong> also provides a special <strong>shortcut</strong> to autoimport all functions:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="hll"> &gt; require <span class="s1">&#39;fun&#39;</span><span class="o">()</span> -- to import all lua.* functions to globals
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="hll"> &gt; require <span class="s1">&#39;fun&#39;</span><span class="o">()</span> -- to import all lua.* functions to globals
 </span> &gt; each<span class="o">(</span>print, range<span class="o">(</span>5<span class="o">))</span>
  1
  2
@@ -216,7 +218,7 @@ all library functions to the global table:</p>
 </pre></div>
 </div>
 <p>Now you can use <strong>Lua Fun</strong>:</p>
-<div class="highlight-bash"><div class="highlight"><pre>&gt; print<span class="o">(</span>sum<span class="o">(</span>filter<span class="o">(</span><span class="k">function</span><span class="o">(</span>x<span class="o">)</span> <span class="k">return</span> x % <span class="nv">16</span> <span class="o">==</span> <span class="m">0</span> end, range<span class="o">(</span>10000<span class="o">))))</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; print<span class="o">(</span>sum<span class="o">(</span>filter<span class="o">(</span><span class="k">function</span><span class="o">(</span>x<span class="o">)</span> <span class="k">return</span> x % <span class="nv">16</span> <span class="o">==</span> <span class="m">0</span> end, range<span class="o">(</span>10000<span class="o">))))</span>
 3130000
 
 &gt; each<span class="o">(</span>print, take<span class="o">(</span>5, tabulate<span class="o">(</span>math.sin<span class="o">)))</span>
@@ -272,11 +274,11 @@ one
 <div class="section" id="further-actions">
 <h2><a class="toc-backref" href="#id12">Further Actions</a><a class="headerlink" href="#further-actions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Take a look on <a class="reference internal" href="reference.html"><em>API Reference</em></a>.</li>
-<li>Use <a class="reference internal" href="genindex.html"><span>Index</span></a> to find functions by its names.</li>
+<li>Take a look on <a class="reference internal" href="reference.html"><span class="doc">API Reference</span></a>.</li>
+<li>Use <a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a> to find functions by its names.</li>
 <li>Checkout <strong>examples</strong> from
 <a class="reference external" href="https://github.com/rtsisyk/luafun/tree/master/tests">tests/</a> directory</li>
-<li>Read <a class="reference internal" href="under_the_hood.html"><em>Under the Hood</em></a> section</li>
+<li>Read <a class="reference internal" href="under_the_hood.html"><span class="doc">Under the Hood</span></a> section</li>
 <li>&#8220;Star&#8221; us the on <a class="reference external" href="http://github.com/rtsisyk/luafun">GitHub</a> to help the project to survive</li>
 <li>Make Great Software</li>
 <li>Have fun</li>
@@ -299,9 +301,20 @@ one
 
       </div>
 
+
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2013-2016, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+        &#169; Copyright 2013-2016, Roman Tsisyk.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
     </div>
+    <script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45899190-2', 'auto');
+ga('send', 'pageview');
+    </script>
+
   </body>
 </html>
