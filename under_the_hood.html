@@ -1,36 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Under the Hood &#8212; Lua Functional 0.1.3 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
     <link rel="next" title="About" href="about.html" />
     <link rel="prev" title="Operators" href="operators.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Under the Hood</span></h2>
@@ -46,64 +34,64 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="module-fun">
-<span id="under-the-hood"></span><h1>Under the Hood<a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
+  <section id="under-the-hood">
+<h1>Under the Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this headline">¶</a></h1>
 <p>The section shed some light on the internal library structure and working
 principles.</p>
-<div class="section" id="iterators">
+<section id="iterators">
 <h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
 <p>A basic primitive of the library after functions is an iterator. Most functions
 takes an iterator and returns a new iteraror(s). Iterators all the way down!
-<a class="footnote-reference" href="#id8" id="id1">[1]</a>.</p>
-<p>The simplest iterator is (surprise!) <code class="xref py py-func docutils literal"><span class="pre">pairs()</span></code> and <code class="xref py py-func docutils literal"><span class="pre">ipairs()</span></code>
-Lua functions. Have you ever tried to call, say, <code class="xref py py-func docutils literal"><span class="pre">ipairs()</span></code> function
-without using it inside a <code class="docutils literal"><span class="pre">for</span></code> loop? Try to do that on any Lua
+<a class="footnote-reference brackets" href="#id8" id="id1">1</a>.</p>
+<p>The simplest iterator is (surprise!) <code class="xref py py-func docutils literal notranslate"><span class="pre">pairs()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code>
+Lua functions. Have you ever tried to call, say, <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code> function
+without using it inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop? Try to do that on any Lua
 implementation:</p>
-<div class="highlight-bash" id="iterator-triplet"><div class="highlight"><pre><span></span>&gt; <span class="o">=</span>ipairs<span class="o">({</span><span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;b&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">})</span>
-<span class="k">function</span>: builtin#6     table: 0x40f80e38       0
+<div class="highlight-bash notranslate" id="iterator-triplet"><div class="highlight"><pre><span></span>&gt; <span class="o">=</span>ipairs<span class="o">({</span><span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;b&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">})</span>
+<span class="k">function</span>: builtin#6     table: 0x40f80e38       <span class="m">0</span>
 </pre></div>
 </div>
-<p>The function returned three strange values which look useless without a <code class="docutils literal"><span class="pre">for</span></code>
+<p>The function returned three strange values which look useless without a <code class="docutils literal notranslate"><span class="pre">for</span></code>
 loop. We call these values <strong>iterator triplet</strong>.
-Let&#8217;s see how each value is used for:</p>
-<dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">gen</span></code> &#8211; first value</dt>
-<dd>A generating function that can produce a next value on each iteration.
-Usually returns a new <code class="docutils literal"><span class="pre">state</span></code> and iteration values (multireturn).</dd>
-<dt><code class="docutils literal"><span class="pre">param</span></code> &#8211; second value</dt>
-<dd>A permanent (constant) parameter of a generating function is used to create
+Let’s see how each value is used for:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">gen</span></code> – first value</dt><dd><p>A generating function that can produce a next value on each iteration.
+Usually returns a new <code class="docutils literal notranslate"><span class="pre">state</span></code> and iteration values (multireturn).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">param</span></code> – second value</dt><dd><p>A permanent (constant) parameter of a generating function is used to create
 specific instance of the generating function. For example, a table itself
-for <code class="docutils literal"><span class="pre">ipairs</span></code> case.</dd>
-<dt><code class="docutils literal"><span class="pre">state</span></code> &#8211; third value</dt>
-<dd>A some transient state of an iterator that is changed after each iteration.
-For example, an array index for <code class="docutils literal"><span class="pre">ipairs</span></code> case.</dd>
+for <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> case.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">state</span></code> – third value</dt><dd><p>A some transient state of an iterator that is changed after each iteration.
+For example, an array index for <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> case.</p>
+</dd>
 </dl>
-<p>Try to call <code class="docutils literal"><span class="pre">gen</span></code> function manually:</p>
+<p>Try to call <code class="docutils literal notranslate"><span class="pre">gen</span></code> function manually:</p>
 <blockquote>
-<div><div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="nb">ipairs</span><span class="p">({</span><span class="s1">&#39;</span><span class="s">a&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">b&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">c&#39;</span><span class="p">})</span>
+<div><div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="nb">ipairs</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">})</span>
 <span class="o">&gt;</span> <span class="o">=</span><span class="n">gen</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 <span class="mi">1</span>       <span class="n">a</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>The <code class="docutils literal"><span class="pre">gen</span></code> function returned a new state <code class="docutils literal"><span class="pre">1</span></code> and the next iteration
-value <code class="docutils literal"><span class="pre">a</span></code>. The second call to <code class="docutils literal"><span class="pre">gen</span></code> with the new state will return the next
+<p>The <code class="docutils literal notranslate"><span class="pre">gen</span></code> function returned a new state <code class="docutils literal notranslate"><span class="pre">1</span></code> and the next iteration
+value <code class="docutils literal notranslate"><span class="pre">a</span></code>. The second call to <code class="docutils literal notranslate"><span class="pre">gen</span></code> with the new state will return the next
 state  and the next iteration value. When the iterator finishes to the end
-the <code class="docutils literal"><span class="pre">nil</span></code> value is returned instead of the next state.</p>
+the <code class="docutils literal notranslate"><span class="pre">nil</span></code> value is returned instead of the next state.</p>
 <p><strong>Please do not panic!</strong> You do not have to use these values directly.
-It is just a nice trick to get <code class="docutils literal"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loop working in Lua.</p>
-</div>
-<div class="section" id="iterations">
+It is just a nice trick to get <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loop working in Lua.</p>
+</section>
+<section id="iterations">
 <h2>Iterations<a class="headerlink" href="#iterations" title="Permalink to this headline">¶</a></h2>
 <p>What happens when you type the following code into a Lua console:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">})</span> <span class="n">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">end</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">})</span> <span class="n">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">end</span>
 </pre></div>
 </div>
-<p>According to Lua reference manual <a class="footnote-reference" href="#lua-for" id="id2">[2]</a> the code above is equivalent to:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>do
+<p>According to Lua reference manual <a class="footnote-reference brackets" href="#lua-for" id="id2">2</a> the code above is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>do
     -- Initialize the iterator
     local gen, param, state = ipairs({&#39;a&#39;, &#39;b&#39;, &#39;c&#39;})
     while true do
@@ -121,51 +109,47 @@ end
 </div>
 <p>What does it mean for us?</p>
 <ul>
-<li><p class="first">An iterator can be used together with <code class="docutils literal"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> to generate a loop</p>
-</li>
-<li><p class="first">An iterator is fully defined using <code class="docutils literal"><span class="pre">gen</span></code>, <code class="docutils literal"><span class="pre">param</span></code> and <code class="docutils literal"><span class="pre">state</span></code> iterator
-triplet</p>
-</li>
-<li><p class="first">The <code class="docutils literal"><span class="pre">nil</span></code> state marks the end of an iteration</p>
-</li>
-<li><p class="first">An iterator can return an arbitrary number of values (multireturn)</p>
-</li>
-<li><p class="first">It is possible to make some wrapping functions to take an iterator and</p>
+<li><p>An iterator can be used together with <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> to generate a loop</p></li>
+<li><p>An iterator is fully defined using <code class="docutils literal notranslate"><span class="pre">gen</span></code>, <code class="docutils literal notranslate"><span class="pre">param</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> iterator
+triplet</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">nil</span></code> state marks the end of an iteration</p></li>
+<li><p>An iterator can return an arbitrary number of values (multireturn)</p></li>
+<li><p>It is possible to make some wrapping functions to take an iterator and</p>
 <p>return a new modified iterator</p>
 </li>
 </ul>
-<p><strong>The library provides a set of iterators</strong> that can be used like <code class="docutils literal"><span class="pre">pairs</span></code>
-and <code class="docutils literal"><span class="pre">ipairs</span></code>.</p>
-</div>
-<div class="section" id="iterator-types">
+<p><strong>The library provides a set of iterators</strong> that can be used like <code class="docutils literal notranslate"><span class="pre">pairs</span></code>
+and <code class="docutils literal notranslate"><span class="pre">ipairs</span></code>.</p>
+</section>
+<section id="iterator-types">
 <h2>Iterator Types<a class="headerlink" href="#iterator-types" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="pure-functional-iterators">
+<section id="pure-functional-iterators">
 <h3>Pure functional iterators<a class="headerlink" href="#pure-functional-iterators" title="Permalink to this headline">¶</a></h3>
 <p>Iterators can be either pure functional or have some side effects and returns
-different values for some initial conditions <a class="footnote-reference" href="#pure-function" id="id3">[3]</a>. An <strong>iterator is
+different values for some initial conditions <a class="footnote-reference brackets" href="#pure-function" id="id3">3</a>. An <strong>iterator is
 pure functional</strong> if it meets the following criteria:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">gen</span></code> function always returns the same values for the same <code class="docutils literal"><span class="pre">param</span></code> and
-<code class="docutils literal"><span class="pre">state</span></code> values (idempotence property)</li>
-<li><code class="docutils literal"><span class="pre">param</span></code> and <code class="docutils literal"><span class="pre">state</span></code> values are not modified during <code class="docutils literal"><span class="pre">gen</span></code> call and
-a new <code class="docutils literal"><span class="pre">state</span></code> object is returned instead (referential transparency
-property).</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gen</span></code> function always returns the same values for the same <code class="docutils literal notranslate"><span class="pre">param</span></code> and
+<code class="docutils literal notranslate"><span class="pre">state</span></code> values (idempotence property)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> values are not modified during <code class="docutils literal notranslate"><span class="pre">gen</span></code> call and
+a new <code class="docutils literal notranslate"><span class="pre">state</span></code> object is returned instead (referential transparency
+property).</p></li>
 </ul>
 <p>Pure functional iterators are very important for us. Pure functional iterator
 can be safety cloned or reapplied without creating side effects. Many library
 function use these properties.</p>
-</div>
-<div class="section" id="finite-iterators">
+</section>
+<section id="finite-iterators">
 <h3>Finite iterators<a class="headerlink" href="#finite-iterators" title="Permalink to this headline">¶</a></h3>
 <p>Iterators can be <strong>finite</strong> (sooner or later end up) or <strong>infinite</strong>
 (never end).
 Since there is no way to determine automatically if an iterator is finite or
-not <a class="footnote-reference" href="#turing" id="id4">[4]</a> the library function can not automatically resolve infinite
+not <a class="footnote-reference brackets" href="#turing" id="id4">4</a> the library function can not automatically resolve infinite
 loops. It is your obligation to do not pass infinite iterator to reducing
 functions.</p>
-</div>
-</div>
-<div class="section" id="tracing-jit">
+</section>
+</section>
+<section id="tracing-jit">
 <h2>Tracing JIT<a class="headerlink" href="#tracing-jit" title="Permalink to this headline">¶</a></h2>
 <p>Tracing just-in-time compilation is a technique used by virtual machines to
 optimize the execution of a program at runtime. This is done by recording a
@@ -176,55 +160,36 @@ identified, a special tracing mode is entered which records all executed
 operations of that loop. This sequence of operations is called a <strong>trace</strong>.
 The trace is then optimized and compiled to machine code (trace). When this
 loop is executed again the compiled trace is called instead of the program
-counterpart <a class="footnote-reference" href="#id9" id="id5">[5]</a>.</p>
+counterpart <a class="footnote-reference brackets" href="#id9" id="id5">5</a>.</p>
 <p>Why the tracing JIT is important for us? The LuaJIT tracing compiler can detect
-tail-, up- and down-recursion <a class="footnote-reference" href="#luajit-recursion" id="id6">[6]</a>, unroll compositions of
-functions and inline high-order functions <a class="footnote-reference" href="#luajit-optimizations" id="id7">[7]</a>.
+tail-, up- and down-recursion <a class="footnote-reference brackets" href="#luajit-recursion" id="id6">6</a>, unroll compositions of
+functions and inline high-order functions <a class="footnote-reference brackets" href="#luajit-optimizations" id="id7">7</a>.
 All of these concepts make the foundation for functional programming.</p>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Turtles_all_the_way_down">http://en.wikipedia.org/wiki/Turtles_all_the_way_down</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="lua-for" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.3.5">http://www.lua.org/manual/5.2/manual.html#3.3.5</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="pure-function" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Pure_function">http://en.wikipedia.org/wiki/Pure_function</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="turing" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Halting_problem">Proved by Turing</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation">http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="luajit-recursion" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td><a class="reference external" href="http://lambda-the-ultimate.org/node/3851#comment-57679">http://lambda-the-ultimate.org/node/3851#comment-57679</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="luajit-optimizations" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td><a class="reference external" href="http://wiki.luajit.org/Optimizations">http://wiki.luajit.org/Optimizations</a></td></tr>
-</tbody>
-</table>
-</div>
-</div>
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Turtles_all_the_way_down">http://en.wikipedia.org/wiki/Turtles_all_the_way_down</a></p>
+</dd>
+<dt class="label" id="lua-for"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.3.5">http://www.lua.org/manual/5.2/manual.html#3.3.5</a></p>
+</dd>
+<dt class="label" id="pure-function"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Pure_function">http://en.wikipedia.org/wiki/Pure_function</a></p>
+</dd>
+<dt class="label" id="turing"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Halting_problem">Proved by Turing</a></p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation">http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation</a></p>
+</dd>
+<dt class="label" id="luajit-recursion"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p><a class="reference external" href="http://lambda-the-ultimate.org/node/3851#comment-57679">http://lambda-the-ultimate.org/node/3851#comment-57679</a></p>
+</dd>
+<dt class="label" id="luajit-optimizations"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p><a class="reference external" href="http://wiki.luajit.org/Optimizations">http://wiki.luajit.org/Optimizations</a></p>
+</dd>
+</dl>
+</section>
+</section>
 
 
       </div>
@@ -242,8 +207,8 @@ All of these concepts make the foundation for functional programming.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2017, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2013-2021, Roman Tsisyk.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

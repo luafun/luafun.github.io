@@ -1,36 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction &#8212; Lua Functional 0.1.3 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
     <link rel="next" title="Getting Started" href="getting_started.html" />
     <link rel="prev" title="Lua Functional Library" href="index.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Introduction</span></h2>
@@ -46,32 +34,32 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="module-fun">
-<span id="introduction"></span><h1>Introduction<a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p><strong>Lua Fun</strong> is a high-performance functional programming library
 designed for <a class="reference external" href="http://luajit.org/luajit.html">LuaJIT tracing just-in-time compiler</a>.</p>
 <p>The library provides a set of more than 50 programming primitives typically
 found in languages like Standard ML, Haskell, Erlang, JavaScript, Python and
-even Lisp. High-order functions such as <a class="reference internal" href="transformations.html#fun.map" title="fun.map"><code class="xref py py-func docutils literal"><span class="pre">map()</span></code></a>, <a class="reference internal" href="filtering.html#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal"><span class="pre">filter()</span></code></a>,
-<a class="reference internal" href="reducing.html#fun.reduce" title="fun.reduce"><code class="xref py py-func docutils literal"><span class="pre">reduce()</span></code></a>, <a class="reference internal" href="compositions.html#fun.zip" title="fun.zip"><code class="xref py py-func docutils literal"><span class="pre">zip()</span></code></a> will help you to <strong>write simple and efficient
+even Lisp. High-order functions such as <a class="reference internal" href="transformations.html#fun.map" title="fun.map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>, <a class="reference internal" href="filtering.html#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a>,
+<a class="reference internal" href="reducing.html#fun.reduce" title="fun.reduce"><code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code></a>, <a class="reference internal" href="compositions.html#fun.zip" title="fun.zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> will help you to <strong>write simple and efficient
 functional code</strong>.</p>
-<p>Let&#8217;s see an example:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span> <span class="c1">-- Functional style</span>
-<span class="hll"> <span class="nb">require</span> <span class="s2">&quot;</span><span class="s">fun&quot;</span> <span class="p">()</span>
+<p>Let’s see an example:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span> <span class="c1">-- Functional style</span>
+<span class="hll"> <span class="nb">require</span> <span class="s2">&quot;fun&quot;</span> <span class="p">()</span>
 </span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="hll"> <span class="n">x</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="k">end</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">tabulate</span><span class="p">(</span><span class="nb">math.sin</span><span class="p">))))</span>
+<span class="hll"> <span class="n">x</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="kr">end</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">tabulate</span><span class="p">(</span><span class="nb">math.sin</span><span class="p">))))</span>
 </span> <span class="c1">-- calculate sum(sin(x)^2 for x in 0..n-1)</span>
  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
  <span class="mf">50.011981355266</span>
 </pre></div>
 </div>
-<div class="highlight-lua"><div class="highlight"><pre><span></span> <span class="c1">-- Object-oriented style</span>
-<span class="hll"> <span class="kd">local</span> <span class="n">fun</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;</span><span class="s">fun&quot;</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span> <span class="c1">-- Object-oriented style</span>
+<span class="hll"> <span class="kd">local</span> <span class="n">fun</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;fun&quot;</span>
 </span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="hll"> <span class="n">x</span> <span class="o">=</span> <span class="n">fun</span><span class="p">.</span><span class="n">tabulate</span><span class="p">(</span><span class="nb">math.sin</span><span class="p">):</span><span class="n">take</span><span class="p">(</span><span class="n">n</span><span class="p">):</span><span class="n">map</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="k">end</span><span class="p">):</span><span class="n">sum</span><span class="p">()</span>
+<span class="hll"> <span class="n">x</span> <span class="o">=</span> <span class="n">fun</span><span class="p">.</span><span class="n">tabulate</span><span class="p">(</span><span class="nb">math.sin</span><span class="p">):</span><span class="n">take</span><span class="p">(</span><span class="n">n</span><span class="p">):</span><span class="n">map</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="kr">end</span><span class="p">):</span><span class="n">sum</span><span class="p">()</span>
 </span> <span class="c1">-- calculate sum(sin(x)^2 for x in 0..n-1)</span>
  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
  <span class="mf">50.011981355266</span>
@@ -81,8 +69,8 @@ functional code</strong>.</p>
 to achieve transcendental performance on nested functional expressions.
 Functional compositions and high-order functions can be translated into
 <strong>efficient machine code</strong>. Can you believe it? Just try to run the example above
-with <code class="docutils literal"><span class="pre">luajit</span> <span class="pre">-jdump</span></code> and see what happens:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span> -- skip some initilization code --
+with <code class="docutils literal notranslate"><span class="pre">luajit</span> <span class="pre">-jdump</span></code> and see what happens:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> -- skip some initilization code --
 <span class="hll"> -&gt;LOOP:
 </span> 0bcaffd0  movsd [rsp+0x8], xmm7
  0bcaffd6  addsd xmm4, xmm5
@@ -102,7 +90,7 @@ with <code class="docutils literal"><span class="pre">luajit</span> <span class=
 <p>The functional chain above was translated by LuaJIT to (!) <strong>one machine loop</strong>
 containing just 10 CPU assembly instructions without CALL. Unbelievable!</p>
 <p>Readable? Efficient? Can your Python/Ruby/V8 do better?</p>
-</div>
+</section>
 
 
       </div>
@@ -120,8 +108,8 @@ containing just 10 CPU assembly instructions without CALL. Unbelievable!</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2017, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2013-2021, Roman Tsisyk.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

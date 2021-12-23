@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Indexing &#8212; Lua Functional 0.1.3 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
-    <link rel="up" title="API Reference" href="reference.html" />
     <link rel="next" title="Filtering" href="filtering.html" />
     <link rel="prev" title="Slicing" href="slicing.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Indexing</span></h2>
@@ -47,75 +34,71 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="module-fun">
-<span id="indexing"></span><h1>Indexing<a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
+  <section id="indexing">
+<h1>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h1>
 <p>This section contains functions to find elements by its values.</p>
-<dl class="function">
-<dt id="fun.index">
-<code class="descclassname">fun.</code><code class="descname">index</code><span class="sig-paren">(</span><em>x</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.index" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:index(x)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; a value to find</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the position of the first element that equals to the <strong>x</strong></td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.index">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.index" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:index(x)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> – a value to find</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the position of the first element that equals to the <strong>x</strong></p>
+</dd>
+</dl>
 <p>The function returns the position of the first element in the given iterator
-which is equal (using <code class="docutils literal"><span class="pre">==</span></code>) to the query element, or <code class="docutils literal"><span class="pre">nil</span></code> if there is
+which is equal (using <code class="docutils literal notranslate"><span class="pre">==</span></code>) to the query element, or <code class="docutils literal notranslate"><span class="pre">nil</span></code> if there is
 no such element.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
 <span class="kc">nil</span>
 
-<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
 <span class="mi">2</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.index_of">
-<code class="descclassname">fun.</code><code class="descname">index_of</code><span class="sig-paren">(</span><em>x</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.index_of" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:index_of(x)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.index" title="fun.index"><code class="xref py py-func docutils literal"><span class="pre">index()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.index_of">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">index_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.index_of" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:index_of(x)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.index" title="fun.index"><code class="xref py py-func docutils literal notranslate"><span class="pre">index()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.elem_index">
-<code class="descclassname">fun.</code><code class="descname">elem_index</code><span class="sig-paren">(</span><em>x</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.elem_index" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:elem_index(x)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.index" title="fun.index"><code class="xref py py-func docutils literal"><span class="pre">index()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.elem_index">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">elem_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.elem_index" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:elem_index(x)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.index" title="fun.index"><code class="xref py py-func docutils literal notranslate"><span class="pre">index()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.indexes">
-<code class="descclassname">fun.</code><code class="descname">indexes</code><span class="sig-paren">(</span><em>x</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.indexes" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:indexes(x)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; a value to find</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an iterator which positions of elements that equal to the <strong>x</strong></td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.indexes">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.indexes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:indexes(x)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> – a value to find</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an iterator which positions of elements that equal to the <strong>x</strong></p>
+</dd>
+</dl>
 <p>The function returns an iterator to positions of elements which equals to
 the query element.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">indexes</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">}))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">indexes</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">}))</span>
 <span class="mi">1</span>
 <span class="mi">6</span>
 <span class="mi">9</span>
@@ -123,36 +106,36 @@ the query element.</p>
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="filtering.html#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal"><span class="pre">filter()</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="filtering.html#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a></p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.indices">
-<code class="descclassname">fun.</code><code class="descname">indices</code><span class="sig-paren">(</span><em>x</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.indices" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:indices(x)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.indexes" title="fun.indexes"><code class="xref py py-func docutils literal"><span class="pre">indexes()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.indices">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.indices" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:indices(x)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.indexes" title="fun.indexes"><code class="xref py py-func docutils literal notranslate"><span class="pre">indexes()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.elem_indexes">
-<code class="descclassname">fun.</code><code class="descname">elem_indexes</code><span class="sig-paren">(</span><em>x</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.elem_indexes" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:elem_indexes(x)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.indexes" title="fun.indexes"><code class="xref py py-func docutils literal"><span class="pre">indexes()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.elem_indexes">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">elem_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.elem_indexes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:elem_indexes(x)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.indexes" title="fun.indexes"><code class="xref py py-func docutils literal notranslate"><span class="pre">indexes()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.elem_indices">
-<code class="descclassname">fun.</code><code class="descname">elem_indices</code><span class="sig-paren">(</span><em>x</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.elem_indices" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:elem_indices(x)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.indexes" title="fun.indexes"><code class="xref py py-func docutils literal"><span class="pre">indexes()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.elem_indices">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">elem_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.elem_indices" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:elem_indices(x)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.indexes" title="fun.indexes"><code class="xref py py-func docutils literal notranslate"><span class="pre">indexes()</span></code></a>.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
       </div>
@@ -170,8 +153,8 @@ the query element.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2017, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2013-2021, Roman Tsisyk.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

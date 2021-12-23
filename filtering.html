@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Filtering &#8212; Lua Functional 0.1.3 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
-    <link rel="up" title="API Reference" href="reference.html" />
     <link rel="next" title="Reducing" href="reducing.html" />
     <link rel="prev" title="Indexing" href="indexing.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Filtering</span></h2>
@@ -47,34 +34,31 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="module-fun">
-<span id="filtering"></span><h1>Filtering<a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
+  <section id="filtering">
+<h1>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h1>
 <p>This section contains functions to filter values during iteration.</p>
-<dl class="function">
-<dt id="fun.filter">
-<code class="descclassname">fun.</code><code class="descname">filter</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.filter" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:filter(predicate)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>param</strong> (<em>(function(...) -&gt; bool)</em>) &#8211; an predicate to filter the iterator</td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.filter">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.filter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:filter(predicate)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>param</strong> (<em>(</em><em>function</em><em>(</em><em>...</em><em>) </em><em>-&gt; bool</em><em>)</em>) – an predicate to filter the iterator</p>
+</dd>
+</dl>
 <p>Return a new iterator of those elements that satisfy the <strong>predicate</strong>.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">filter</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">filter</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
 <span class="mi">3</span>
 <span class="mi">6</span>
 <span class="mi">9</span>
 
-<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">filter</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">end</span><span class="p">,</span>
-    <span class="n">enumerate</span><span class="p">(</span><span class="n">duplicate</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">x&#39;</span><span class="p">)))))</span>
+<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">filter</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">end</span><span class="p">,</span>
+    <span class="n">enumerate</span><span class="p">(</span><span class="n">duplicate</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)))))</span>
 <span class="mi">3</span>       <span class="n">x</span>
 <span class="mi">6</span>       <span class="n">x</span>
 <span class="mi">9</span>       <span class="n">x</span>
@@ -83,42 +67,42 @@
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Multireturn iterators are supported but can cause performance
+<p class="admonition-title">Note</p>
+<p>Multireturn iterators are supported but can cause performance
 regressions.</p>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="slicing.html#fun.take_while" title="fun.take_while"><code class="xref py py-func docutils literal"><span class="pre">take_while()</span></code></a> and <a class="reference internal" href="slicing.html#fun.drop_while" title="fun.drop_while"><code class="xref py py-func docutils literal"><span class="pre">drop_while()</span></code></a>.</p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="slicing.html#fun.take_while" title="fun.take_while"><code class="xref py py-func docutils literal notranslate"><span class="pre">take_while()</span></code></a> and <a class="reference internal" href="slicing.html#fun.drop_while" title="fun.drop_while"><code class="xref py py-func docutils literal notranslate"><span class="pre">drop_while()</span></code></a>.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.remove_if">
-<code class="descclassname">fun.</code><code class="descname">remove_if</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.remove_if" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:remove_if(predicate)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal"><span class="pre">filter()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.remove_if">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">remove_if</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.remove_if" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:remove_if(predicate)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.grep">
-<code class="descclassname">fun.</code><code class="descname">grep</code><span class="sig-paren">(</span><em>regexp_or_predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.grep" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:grep(regexp_or_predicate)</code></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.grep">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">grep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regexp_or_predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.grep" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:grep(regexp_or_predicate)</span></span></dt>
 <dd><p>If <strong>regexp_or_predicate</strong> is string then the parameter is used as a regular
 expression to build filtering predicate. Otherwise the function is just an
-alias for <a class="reference internal" href="#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal"><span class="pre">filter()</span></code></a>.</p>
+alias for <a class="reference internal" href="#fun.filter" title="fun.filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a>.</p>
 <p>Equivalent to:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">fun</span> <span class="o">=</span> <span class="n">regexp_or_predicate</span>
-<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">regexp_or_predicate</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">string&quot;</span> <span class="k">then</span>
-    <span class="n">fun</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="nb">string.find</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">regexp_or_predicate</span><span class="p">)</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="k">end</span>
-<span class="k">end</span>
-<span class="k">return</span> <span class="n">filter</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">fun</span> <span class="o">=</span> <span class="n">regexp_or_predicate</span>
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">regexp_or_predicate</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span> <span class="kr">then</span>
+    <span class="n">fun</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="nb">string.find</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">regexp_or_predicate</span><span class="p">)</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="kr">return</span> <span class="n">filter</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">lines_to_grep</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">lines_to_grep</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">[[Emily]]</span><span class="p">,</span>
     <span class="s">[[Chloe]]</span><span class="p">,</span>
     <span class="s">[[Megan]]</span><span class="p">,</span>
@@ -131,17 +115,17 @@ alias for <a class="reference internal" href="#fun.filter" title="fun.filter"><c
     <span class="s">[[Lauren]]</span>
 <span class="p">}</span>
 
-<span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">grep</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">^Em&quot;</span><span class="p">,</span> <span class="n">lines_to_grep</span><span class="p">))</span>
+<span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">grep</span><span class="p">(</span><span class="s2">&quot;^Em&quot;</span><span class="p">,</span> <span class="n">lines_to_grep</span><span class="p">))</span>
 <span class="cm">--[[test</span>
 <span class="cm">Emily</span>
 <span class="cm">Emma</span>
 <span class="cm">--test]]</span>
 
-<span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">grep</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">^P&quot;</span><span class="p">,</span> <span class="n">lines_to_grep</span><span class="p">))</span>
+<span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">grep</span><span class="p">(</span><span class="s2">&quot;^P&quot;</span><span class="p">,</span> <span class="n">lines_to_grep</span><span class="p">))</span>
 <span class="cm">--[[test</span>
 <span class="cm">--test]]</span>
 
-<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">grep</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">grep</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
 <span class="mi">3</span>
 <span class="mi">6</span>
 <span class="mi">9</span>
@@ -149,48 +133,46 @@ alias for <a class="reference internal" href="#fun.filter" title="fun.filter"><c
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.partition">
-<code class="descclassname">fun.</code><code class="descname">partition</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.partition" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:partition(predicate)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; a value to find</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">{gen1, param1, state1}, {gen2, param2, state2}</td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.partition">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.partition" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:partition(predicate)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> – a value to find</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>{gen1, param1, state1}, {gen2, param2, state2}</p>
+</dd>
+</dl>
 <p>The function returns two iterators where elements do and do not satisfy the
 prediucate. Equivalent to:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">filter</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span> <span class="n">gen</span><span class="s1">&#39;</span><span class="s">, param&#39;</span><span class="p">,</span> <span class="n">state</span><span class="s1">&#39;</span><span class="s">),</span>
-<span class="n">filter</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">return</span> <span class="ow">not</span> <span class="n">predicate</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">end</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">);</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span> <span class="n">filter</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span> <span class="n">gen</span><span class="s1">&#39;, param&#39;</span><span class="p">,</span> <span class="n">state</span><span class="s1">&#39;),</span>
+<span class="s1">filter(function(...) return not predicate(...) end, gen, param, state);</span>
 </pre></div>
 </div>
 <p>The function make a clone of the source iterator. Iterators especially
-returned in tables to work with <a class="reference internal" href="compositions.html#fun.zip" title="fun.zip"><code class="xref py py-func docutils literal"><span class="pre">zip()</span></code></a> and other functions.</p>
+returned in tables to work with <a class="reference internal" href="compositions.html#fun.zip" title="fun.zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> and other functions.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">zip</span><span class="p">(</span><span class="n">partition</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">zip</span><span class="p">(</span><span class="n">partition</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))))</span>
 <span class="mi">3</span>       <span class="mi">1</span>
 <span class="mi">6</span>       <span class="mi">2</span>
 <span class="mi">9</span>       <span class="mi">4</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><code class="docutils literal"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> must be pure functional to work properly
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> must be pure functional to work properly
 with the function.</p>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="slicing.html#fun.span" title="fun.span"><code class="xref py py-func docutils literal"><span class="pre">span()</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="slicing.html#fun.span" title="fun.span"><code class="xref py py-func docutils literal notranslate"><span class="pre">span()</span></code></a></p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
       </div>
@@ -208,8 +190,8 @@ with the function.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2017, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2013-2021, Roman Tsisyk.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Compositions &#8212; Lua Functional 0.1.3 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
-    <link rel="up" title="API Reference" href="reference.html" />
     <link rel="next" title="Operators" href="operators.html" />
     <link rel="prev" title="Transformations" href="transformations.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Compositions</span></h2>
@@ -47,44 +34,42 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="module-fun">
-<span id="compositions"></span><h1>Compositions<a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="fun.zip">
-<code class="descclassname">fun.</code><code class="descname">zip</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.zip" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator1:zip(iterator2, iterator3, ...)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>..</strong> (<em>iterator</em>) &#8211; iterators to &#8220;zip&#8221;</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an iterator</td>
-</tr>
-</tbody>
-</table>
+  <section id="compositions">
+<h1>Compositions<a class="headerlink" href="#compositions" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.zip">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">zip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.zip" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator1:zip(iterator2,</span> <span class="pre">iterator3,</span> <span class="pre">...)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>...</strong> (<em>iterator</em>) – iterators to “zip”</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an iterator</p>
+</dd>
+</dl>
 <p>Return a new iterator where i-th return value contains the i-th element
 from each of the iterators. The returned iterator is truncated in length
 to the length of the shortest iterator. For multi-return iterators only the
 first variable is used.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">dump</span><span class="p">(</span><span class="n">zip</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">one&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">two&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">three&quot;</span><span class="p">}))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">dump</span><span class="p">(</span><span class="n">zip</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">}))</span>
 <span class="n">a</span> <span class="n">one</span>
 <span class="n">b</span> <span class="n">two</span>
 <span class="n">c</span> <span class="n">three</span>
 
 <span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">zip</span><span class="p">())</span>
 
-<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;</span><span class="s">a&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">b&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s">c&#39;</span><span class="p">},</span> <span class="n">rands</span><span class="p">()))</span>
+<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">},</span> <span class="n">rands</span><span class="p">()))</span>
 <span class="mi">1</span>       <span class="n">a</span>       <span class="mf">0.57514179487402</span>
 <span class="mi">2</span>       <span class="n">b</span>       <span class="mf">0.79693061238668</span>
 <span class="mi">3</span>       <span class="n">c</span>       <span class="mf">0.45174307459403</span>
 
-<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">zip</span><span class="p">(</span><span class="n">partition</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="k">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
+<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">zip</span><span class="p">(</span><span class="n">partition</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="kr">end</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
 <span class="mi">8</span>       <span class="mi">1</span>
 <span class="mi">9</span>       <span class="mi">2</span>
 <span class="mi">10</span>      <span class="mi">3</span>
@@ -96,33 +81,30 @@ first variable is used.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.cycle">
-<code class="descclassname">fun.</code><code class="descname">cycle</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.cycle" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:cycle()</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a cycled version of <code class="docutils literal"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code> iterator</td>
-</tr>
-</tbody>
-</table>
-<p>Make a new iterator that returns elements from <code class="docutils literal"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code>
-iterator until the end and then &#8220;restart&#8221; iteration using a saved clone of
-<code class="docutils literal"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code>. The returned iterator is constant space and no
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.cycle">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">cycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.cycle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:cycle()</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a cycled version of <code class="docutils literal notranslate"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code> iterator</p>
+</dd>
+</dl>
+<p>Make a new iterator that returns elements from <code class="docutils literal notranslate"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code>
+iterator until the end and then “restart” iteration using a saved clone of
+<code class="docutils literal notranslate"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code>. The returned iterator is constant space and no
 return values are buffered. Instead of that the function make a clone of the
-source <code class="docutils literal"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code> iterator. Therefore, the source iterator
+source <code class="docutils literal notranslate"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code> iterator. Therefore, the source iterator
 must be pure functional to make an indentical clone. Infinity iterators
 are supported, but are not recommended.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><code class="docutils literal"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code> must be pure functional to work properly
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">{gen,</span> <span class="pre">param,</span> <span class="pre">state}</span></code> must be pure functional to work properly
 with the function.</p>
 </div>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">cycle</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">cycle</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))))</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="mi">3</span>
@@ -139,7 +121,7 @@ with the function.</p>
 <span class="mi">4</span>
 <span class="mi">5</span>
 
-<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">cycle</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))))</span>
+<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">cycle</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))))</span>
 <span class="mi">1</span>       <span class="n">a</span>
 <span class="mi">2</span>       <span class="n">b</span>
 <span class="mi">3</span>       <span class="n">c</span>
@@ -159,27 +141,25 @@ with the function.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.chain">
-<code class="descclassname">fun.</code><code class="descname">chain</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.chain" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator1:chain(iterator2, iterator3, ...)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>..</strong> (<em>iterator</em>) &#8211; iterators to chain</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a consecutive iterator from sources (left from right)</td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.chain">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.chain" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator1:chain(iterator2,</span> <span class="pre">iterator3,</span> <span class="pre">...)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>...</strong> (<em>iterator</em>) – iterators to chain</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a consecutive iterator from sources (left from right)</p>
+</dd>
+</dl>
 <p>Make an iterator that returns elements from the first iterator until it is
 exhausted, then proceeds to the next iterator, until all of the iterators
 are exhausted. Used for treating consecutive iterators as a single iterator.
 Infinity iterators are supported, but are not recommended.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">chain</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">one&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">two&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">three&quot;</span><span class="p">}))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">chain</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">}))</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="n">a</span>
@@ -189,8 +169,8 @@ Infinity iterators are supported, but are not recommended.</p>
 <span class="n">two</span>
 <span class="n">three</span>
 
-<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">cycle</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="n">enumerate</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">}),</span>
-    <span class="p">{</span><span class="s2">&quot;</span><span class="s">one&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">two&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">three&quot;</span><span class="p">}))))</span>
+<span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">take</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">cycle</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="n">enumerate</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">}),</span>
+    <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">}))))</span>
 <span class="mi">1</span>       <span class="n">a</span>
 <span class="mi">2</span>       <span class="n">b</span>
 <span class="mi">3</span>       <span class="n">c</span>
@@ -210,7 +190,7 @@ Infinity iterators are supported, but are not recommended.</p>
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
       </div>
@@ -228,8 +208,8 @@ Infinity iterators are supported, but are not recommended.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2017, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2013-2021, Roman Tsisyk.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
