@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Basic Functions &#8212; Lua Functional 0.1.3 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
-    <link rel="up" title="API Reference" href="reference.html" />
     <link rel="next" title="Generators" href="generators.html" />
     <link rel="prev" title="API Reference" href="reference.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Basic Functions</span></h2>
@@ -47,51 +34,48 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="module-fun">
-<span id="basic-functions"></span><h1>Basic Functions<a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
+  <section id="basic-functions">
+<h1>Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h1>
 <p>The section contains functions to create iterators from Lua objects.</p>
-<dl class="function">
-<dt id="fun.iter">
-<code class="descclassname">fun.</code><code class="descname">iter</code><span class="sig-paren">(</span><em>array</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.iter" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descclassname">fun.</code><code class="descname">iter</code><span class="sig-paren">(</span><em>map</em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="descclassname">fun.</code><code class="descname">iter</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span></dt>
-<dt>
-<code class="descclassname">fun.</code><code class="descname">iter</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> &#8211; <a class="reference internal" href="under_the_hood.html#iterator-triplet"><span class="std std-ref">iterator triplet</span></a></td>
-</tr>
-</tbody>
-</table>
-<p>Make <code class="docutils literal"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator from the iterable object.
-The function is a generalized version of <code class="xref py py-func docutils literal"><span class="pre">pairs()</span></code> and <code class="xref py py-func docutils literal"><span class="pre">ipairs()</span></code>.</p>
-<p>The function distinguish between arrays and maps using <code class="docutils literal"><span class="pre">#arg</span> <span class="pre">==</span> <span class="pre">0</span></code>
-check to detect maps. For arrays <code class="docutils literal"><span class="pre">ipairs</span></code> is used. For maps a modified
-version of <code class="docutils literal"><span class="pre">pairs</span></code> is used that also returns keys. Userdata objects
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.iter">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.iter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> – <a class="reference internal" href="under_the_hood.html#iterator-triplet"><span class="std std-ref">iterator triplet</span></a></p>
+</dd>
+</dl>
+<p>Make <code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator from the iterable object.
+The function is a generalized version of <code class="xref py py-func docutils literal notranslate"><span class="pre">pairs()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code>.</p>
+<p>The function distinguish between arrays and maps using <code class="docutils literal notranslate"><span class="pre">#arg</span> <span class="pre">==</span> <span class="pre">0</span></code>
+check to detect maps. For arrays <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> is used. For maps a modified
+version of <code class="docutils literal notranslate"><span class="pre">pairs</span></code> is used that also returns keys. Userdata objects
 are handled in the same way as tables.</p>
-<p>If <code class="docutils literal"><span class="pre">LUAJIT_ENABLE_LUA52COMPAT</span></code> <a class="footnote-reference" href="#luajit-lua52compat" id="id1">[1]</a> mode is enabled and
-argument has metamethods <code class="docutils literal"><span class="pre">__pairs</span></code> (for maps) or <code class="docutils literal"><span class="pre">__ipairs</span></code> for (arrays),
+<p>If <code class="docutils literal notranslate"><span class="pre">LUAJIT_ENABLE_LUA52COMPAT</span></code> <a class="footnote-reference brackets" href="#luajit-lua52compat" id="id1">1</a> mode is enabled and
+argument has metamethods <code class="docutils literal notranslate"><span class="pre">__pairs</span></code> (for maps) or <code class="docutils literal notranslate"><span class="pre">__ipairs</span></code> for (arrays),
 call it with the table or userdata as argument and return the first three
-results from the call <a class="footnote-reference" href="#lua52-ipairs" id="id2">[2]</a>.</p>
-<p>All library iterator are suitable to use with Lua&#8217;s <code class="docutils literal"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loop.</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span> <span class="k">in</span> <span class="n">iter</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span> <span class="k">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">end</span>
+results from the call <a class="footnote-reference brackets" href="#lua52-ipairs" id="id2">2</a>.</p>
+<p>All library iterator are suitable to use with Lua’s <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loop.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kr">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span> <span class="kr">in</span> <span class="n">iter</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span> <span class="kr">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="kr">end</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="mi">3</span>
 
-<span class="o">&gt;</span> <span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="k">in</span> <span class="n">iter</span><span class="p">({</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">})</span> <span class="k">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">end</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="n">iter</span><span class="p">({</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">})</span> <span class="kr">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="kr">end</span>
 <span class="n">b</span> <span class="mi">2</span>
 <span class="n">a</span> <span class="mi">1</span>
 <span class="n">c</span> <span class="mi">3</span>
 
-<span class="o">&gt;</span> <span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span> <span class="k">in</span> <span class="n">iter</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">abcde&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">end</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span> <span class="kr">in</span> <span class="n">iter</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">)</span> <span class="kr">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="kr">end</span>
 <span class="n">a</span>
 <span class="n">b</span>
 <span class="n">c</span>
@@ -101,29 +85,29 @@ results from the call <a class="footnote-reference" href="#lua52-ipairs" id="id2
 </div>
 <p>The first cycle variable <em>_it</em> is needed to store an internal state of
 the iterator. The value must be always ignored in loops:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="k">in</span> <span class="n">iter</span><span class="p">({</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">})</span> <span class="k">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">end</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="kr">in</span> <span class="n">iter</span><span class="p">({</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">})</span> <span class="kr">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="kr">end</span>
 <span class="c1">-- _it is some internal iterator state - always ignore it</span>
 <span class="c1">-- a, b are values return from the iterator</span>
 </pre></div>
 </div>
-<p>Simple iterators like <code class="docutils literal"><span class="pre">iter({1,</span> <span class="pre">2,</span> <span class="pre">3})</span></code> have simple states, whereas
-other iterators like <a class="reference internal" href="compositions.html#fun.zip" title="fun.zip"><code class="xref py py-func docutils literal"><span class="pre">zip()</span></code></a> or <a class="reference internal" href="compositions.html#fun.chain" title="fun.chain"><code class="xref py py-func docutils literal"><span class="pre">chain()</span></code></a> have complicated
+<p>Simple iterators like <code class="docutils literal notranslate"><span class="pre">iter({1,</span> <span class="pre">2,</span> <span class="pre">3})</span></code> have simple states, whereas
+other iterators like <a class="reference internal" href="compositions.html#fun.zip" title="fun.zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> or <a class="reference internal" href="compositions.html#fun.chain" title="fun.chain"><code class="xref py py-func docutils literal notranslate"><span class="pre">chain()</span></code></a> have complicated
 internal states which values senseless for the end user.</p>
 <p>Check out <a class="reference internal" href="under_the_hood.html"><span class="doc">Under the Hood</span></a> section for more details.</p>
 <p>There is also the possibility to supply custom iterators to the
 function:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="k">function</span> <span class="nf">mypairs_gen</span><span class="p">(</span><span class="n">max</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">&gt;=</span> <span class="n">max</span><span class="p">)</span> <span class="k">then</span>
-            <span class="k">return</span> <span class="kc">nil</span>
-    <span class="k">end</span>
-    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">state</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="k">end</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="kr">function</span> <span class="nf">mypairs_gen</span><span class="p">(</span><span class="n">max</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">&gt;=</span> <span class="n">max</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="kr">return</span> <span class="kc">nil</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">state</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">state</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="kr">end</span>
 
-<span class="o">&gt;</span> <span class="kd">local</span> <span class="k">function</span> <span class="nf">mypairs</span><span class="p">(</span><span class="n">max</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">mypairs_gen</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="mi">0</span>
-<span class="k">end</span>
+<span class="o">&gt;</span> <span class="kd">local</span> <span class="kr">function</span> <span class="nf">mypairs</span><span class="p">(</span><span class="n">max</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="n">mypairs_gen</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="mi">0</span>
+<span class="kr">end</span>
 
-<span class="o">&gt;</span> <span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span> <span class="k">in</span> <span class="n">iter</span><span class="p">(</span><span class="n">mypairs</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="k">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">end</span>
+<span class="o">&gt;</span> <span class="kr">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span> <span class="kr">in</span> <span class="n">iter</span><span class="p">(</span><span class="n">mypairs</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="kr">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="kr">end</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="mi">3</span>
@@ -138,42 +122,35 @@ function:</p>
 </div>
 <p>Iterators can return multiple values.</p>
 <p>Check out <a class="reference internal" href="under_the_hood.html"><span class="doc">Under the Hood</span></a> section for more details.</p>
-<table class="docutils footnote" frame="void" id="luajit-lua52compat" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://luajit.org/extensions.html">http://luajit.org/extensions.html</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="lua52-ipairs" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#pdf-ipairs">http://www.lua.org/manual/5.2/manual.html#pdf-ipairs</a></td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="luajit-lua52compat"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="http://luajit.org/extensions.html">http://luajit.org/extensions.html</a></p>
+</dd>
+<dt class="label" id="lua52-ipairs"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#pdf-ipairs">http://www.lua.org/manual/5.2/manual.html#pdf-ipairs</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.each">
-<code class="descclassname">fun.</code><code class="descname">each</code><span class="sig-paren">(</span><em>fun</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.each" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:each(fun)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">none</td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.each">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">each</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.each" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:each(fun)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>none</p>
+</dd>
+</dl>
 <p>Execute the <em>fun</em> for each iteration value. The function is equivalent to
 the code below:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="o">...</span> <span class="k">in</span> <span class="n">iter</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="k">do</span>
-    <span class="n">fun</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="k">end</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">_it</span><span class="p">,</span> <span class="p">...</span> <span class="kr">in</span> <span class="n">iter</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="n">fun</span><span class="p">(...)</span>
+<span class="kr">end</span>
 </pre></div>
 </div>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="p">{</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">})</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="p">{</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">})</span>
 <span class="n">b</span> <span class="mi">2</span>
 <span class="n">a</span> <span class="mi">1</span>
 <span class="n">c</span> <span class="mi">3</span>
@@ -186,30 +163,30 @@ the code below:</p>
 </div>
 <p>The function is used for its side effects. Implementation directly applies
 <em>fun</em> to all iteration values without returning a new iterator, in contrast
-to functions like <a class="reference internal" href="transformations.html#fun.map" title="fun.map"><code class="xref py py-func docutils literal"><span class="pre">map()</span></code></a>.</p>
+to functions like <a class="reference internal" href="transformations.html#fun.map" title="fun.map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="transformations.html#fun.map" title="fun.map"><code class="xref py py-func docutils literal"><span class="pre">map()</span></code></a>, <a class="reference internal" href="reducing.html#fun.reduce" title="fun.reduce"><code class="xref py py-func docutils literal"><span class="pre">reduce()</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="transformations.html#fun.map" title="fun.map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>, <a class="reference internal" href="reducing.html#fun.reduce" title="fun.reduce"><code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code></a></p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.for_each">
-<code class="descclassname">fun.</code><code class="descname">for_each</code><span class="sig-paren">(</span><em>fun</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.for_each" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:for_each(fun)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.each" title="fun.each"><code class="xref py py-func docutils literal"><span class="pre">each()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.for_each">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">for_each</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.for_each" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:for_each(fun)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.each" title="fun.each"><code class="xref py py-func docutils literal notranslate"><span class="pre">each()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.foreach">
-<code class="descclassname">fun.</code><code class="descname">foreach</code><span class="sig-paren">(</span><em>fun</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.foreach" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:foreach(fun)</code></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.each" title="fun.each"><code class="xref py py-func docutils literal"><span class="pre">each()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.foreach">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">foreach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.foreach" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:foreach(fun)</span></span></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.each" title="fun.each"><code class="xref py py-func docutils literal notranslate"><span class="pre">each()</span></code></a>.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
       </div>
@@ -227,8 +204,8 @@ to functions like <a class="reference internal" href="transformations.html#fun.m
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2017, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2013-2021, Roman Tsisyk.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

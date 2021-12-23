@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Reducing &#8212; Lua Functional 0.1.3 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Lua Functional 0.1.3 documentation" href="index.html" />
-    <link rel="up" title="API Reference" href="reference.html" />
     <link rel="next" title="Transformations" href="transformations.html" />
     <link rel="prev" title="Filtering" href="filtering.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Reducing</span></h2>
@@ -47,54 +34,51 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="module-fun">
-<span id="reducing"></span><h1><a class="toc-backref" href="#id1">Reducing</a><a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
+  <section id="reducing">
+<h1><a class="toc-backref" href="#id1">Reducing</a><a class="headerlink" href="#reducing" title="Permalink to this headline">¶</a></h1>
 <p>The section contains functions to analyze iteration values and recombine
 through use of a given combining operation the results of recursively processing
 its constituent parts, building up a return value</p>
 <div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
+<p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#module-fun" id="id1">Reducing</a><ul>
-<li><a class="reference internal" href="#folds" id="id2">Folds</a></li>
-<li><a class="reference internal" href="#predicates" id="id3">Predicates</a></li>
-<li><a class="reference internal" href="#special-folds" id="id4">Special folds</a></li>
+<li><p><a class="reference internal" href="#reducing" id="id1">Reducing</a></p>
+<ul>
+<li><p><a class="reference internal" href="#folds" id="id2">Folds</a></p></li>
+<li><p><a class="reference internal" href="#predicates" id="id3">Predicates</a></p></li>
+<li><p><a class="reference internal" href="#special-folds" id="id4">Special folds</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">An attempt to use infinity iterators with the most function from
+<p class="admonition-title">Note</p>
+<p>An attempt to use infinity iterators with the most function from
 the module causes an infinite loop.</p>
 </div>
-<div class="section" id="folds">
+<section id="folds">
 <h2><a class="toc-backref" href="#id2">Folds</a><a class="headerlink" href="#folds" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="fun.foldl">
-<code class="descclassname">fun.</code><code class="descname">foldl</code><span class="sig-paren">(</span><em>accfun</em>, <em>initval</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.foldl" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:reduce(accfun, initval)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>accfun</strong> &#8211; an accumulating function</li>
-<li><strong>initval</strong> &#8211; an initial value that passed to <strong>accfun</strong> on the first
-iteration</li>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.foldl">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">foldl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accfun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.foldl" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:reduce(accfun,</span> <span class="pre">initval)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accfun</strong> – an accumulating function</p></li>
+<li><p><strong>initval</strong> – an initial value that passed to <strong>accfun</strong> on the first
+iteration</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>The function reduces the iterator from left to right using the binary
 operator <strong>accfun</strong> and the initial value <strong>initval</strong>.
 Equivalent to:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">val</span> <span class="o">=</span> <span class="n">initval</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">val</span> <span class="o">=</span> <span class="n">initval</span>
 <span class="k">for</span> <span class="n">_k</span><span class="p">,</span> <span class="o">...</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span> <span class="n">do</span>
     <span class="n">val</span> <span class="o">=</span> <span class="n">accfun</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 <span class="n">end</span>
@@ -102,44 +86,41 @@ Equivalent to:</p>
 </pre></div>
 </div>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span> <span class="kr">end</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
 <span class="mi">15</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="p">.</span><span class="n">add</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
 <span class="mi">15</span>
 
-<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">return</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">;</span> <span class="k">end</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">foldl</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="kr">return</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">;</span> <span class="kr">end</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">})))</span>
 <span class="mi">20</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.reduce">
-<code class="descclassname">fun.</code><code class="descname">reduce</code><span class="sig-paren">(</span><em>accfun</em>, <em>initval</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.reduce" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:reduce(accfun, initval)</code></dt>
-<dd><p>An alias to <a class="reference internal" href="#fun.foldl" title="fun.foldl"><code class="xref py py-func docutils literal"><span class="pre">foldl()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.reduce">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">reduce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accfun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.reduce" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:reduce(accfun,</span> <span class="pre">initval)</span></span></dt>
+<dd><p>An alias to <a class="reference internal" href="#fun.foldl" title="fun.foldl"><code class="xref py py-func docutils literal notranslate"><span class="pre">foldl()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.length">
-<code class="descclassname">fun.</code><code class="descname">length</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.length" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:length()</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a number of elements in <code class="docutils literal"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.</td>
-</tr>
-</tbody>
-</table>
-<p>Return a number of elements in <code class="docutils literal"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.
-This function is equivalent to <code class="docutils literal"><span class="pre">#obj</span></code> for basic array and string iterators.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.length">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.length" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:length()</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a number of elements in <code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.</p>
+</dd>
+</dl>
+<p>Return a number of elements in <code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.
+This function is equivalent to <code class="docutils literal notranslate"><span class="pre">#obj</span></code> for basic array and string iterators.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
 <span class="mi">5</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({}))</span>
@@ -150,31 +131,28 @@ This function is equivalent to <code class="docutils literal"><span class="pre">
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">An attempt to call this function on an infinite iterator will
+<p class="admonition-title">Warning</p>
+<p>An attempt to call this function on an infinite iterator will
 result an infinite loop.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This function has <code class="docutils literal"><span class="pre">O(n)</span></code> complexity for all iterators except
+<p class="admonition-title">Note</p>
+<p>This function has <code class="docutils literal notranslate"><span class="pre">O(n)</span></code> complexity for all iterators except
 basic array and string iterators.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.totable">
-<code class="descclassname">fun.</code><code class="descname">totable</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.totable" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new table (array) from iterated values.</td>
-</tr>
-</tbody>
-</table>
-<p>The function reduces the iterator from left to right using <code class="docutils literal"><span class="pre">table.insert</span></code>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.totable">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">totable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.totable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a new table (array) from iterated values.</p>
+</dd>
+</dl>
+<p>The function reduces the iterator from left to right using <code class="docutils literal notranslate"><span class="pre">table.insert</span></code>.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">totable</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">abcdef&quot;</span><span class="p">)</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">totable</span><span class="p">(</span><span class="s2">&quot;abcdef&quot;</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="o">#</span><span class="n">tab</span><span class="p">)</span>
 <span class="n">table</span> <span class="mi">6</span>
 <span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">tab</span><span class="p">)</span>
@@ -188,21 +166,18 @@ basic array and string iterators.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.tomap">
-<code class="descclassname">fun.</code><code class="descname">tomap</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.tomap" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new table (map) from iterated values.</td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.tomap">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">tomap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.tomap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a new table (map) from iterated values.</p>
+</dd>
+</dl>
 <p>The function reduces the iterator from left to right using
-<code class="docutils literal"><span class="pre">tab[val1]</span> <span class="pre">=</span> <span class="pre">val2</span></code> expression.</p>
+<code class="docutils literal notranslate"><span class="pre">tab[val1]</span> <span class="pre">=</span> <span class="pre">val2</span></code> expression.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">tomap</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="s1">&#39;</span><span class="s">abcdef&#39;</span><span class="p">))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">local</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">tomap</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">))</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="o">#</span><span class="n">tab</span><span class="p">)</span>
 <span class="n">table</span>   <span class="mi">6</span>
 <span class="o">&gt;</span> <span class="n">each</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="n">iter</span><span class="p">(</span><span class="n">tab</span><span class="p">))</span>
@@ -216,18 +191,18 @@ basic array and string iterators.</p>
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="predicates">
+</section>
+<section id="predicates">
 <h2><a class="toc-backref" href="#id3">Predicates</a><a class="headerlink" href="#predicates" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="fun.is_prefix_of">
-<code class="descclassname">fun.</code><code class="descname">is_prefix_of</code><span class="sig-paren">(</span><em>iterator1</em>, <em>iterator2</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.is_prefix_of" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator1:is_prefix_of(iterator2)</code></dt>
-<dd><p>The function takes two iterators and returns <code class="docutils literal"><span class="pre">true</span></code> if the first iterator
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.is_prefix_of">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">is_prefix_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterator1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterator2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.is_prefix_of" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator1:is_prefix_of(iterator2)</span></span></dt>
+<dd><p>The function takes two iterators and returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the first iterator
 is a prefix of the second.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_prefix_of</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;</span><span class="s">a&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">b&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">}))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_prefix_of</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">}))</span>
 <span class="kc">true</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_prefix_of</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
@@ -236,23 +211,21 @@ is a prefix of the second.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.is_null">
-<code class="descclassname">fun.</code><code class="descname">is_null</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.is_null" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:is_null()</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true when <cite>gen, param, state`</cite> iterator is empty or finished.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">false otherwise.</td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.is_null">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">is_null</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.is_null" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:is_null()</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true when <cite>gen, param, state`</cite> iterator is empty or finished.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>false otherwise.</p>
+</dd>
+</dl>
 <p>Example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_null</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_null</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
 <span class="n">false</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_null</span><span class="p">({}))</span>
@@ -264,118 +237,112 @@ is a prefix of the second.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.all">
-<code class="descclassname">fun.</code><code class="descname">all</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.all" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:all(predicate)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>predicate</strong> &#8211; a predicate</td>
-</tr>
-</tbody>
-</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.all">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.all" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:all(predicate)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>predicate</strong> – a predicate</p>
+</dd>
+</dl>
 <p>Returns true if all return values of iterator satisfy the <strong>predicate</strong>.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">}))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">}))</span>
 <span class="kc">true</span>
 
-<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">}))</span>
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">}))</span>
 <span class="kc">false</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.every">
-<code class="descclassname">fun.</code><code class="descname">every</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.every" title="Permalink to this definition">¶</a></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.all" title="fun.all"><code class="xref py py-func docutils literal"><span class="pre">all()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.every">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">every</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.every" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.all" title="fun.all"><code class="xref py py-func docutils literal notranslate"><span class="pre">all()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.any">
-<code class="descclassname">fun.</code><code class="descname">any</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.any" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:any(predicate)</code></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>predicate</strong> &#8211; a predicate</td>
-</tr>
-</tbody>
-</table>
-<p>Returns <code class="docutils literal"><span class="pre">true</span></code> if at least one return values of iterator satisfy the
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.any">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">any</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.any" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:any(predicate)</span></span></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>predicate</strong> – a predicate</p>
+</dd>
+</dl>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if at least one return values of iterator satisfy the
 <strong>predicate</strong>. The iteration stops on the first such value. Therefore,
 infinity iterators that have at least one satisfying value might work.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">}))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">}))</span>
 <span class="kc">false</span>
 
-<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span> <span class="k">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">}))</span>
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="kr">return</span> <span class="n">x</span> <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">}))</span>
 <span class="kc">true</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.some">
-<code class="descclassname">fun.</code><code class="descname">some</code><span class="sig-paren">(</span><em>predicate</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.some" title="Permalink to this definition">¶</a></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.any" title="fun.any"><code class="xref py py-func docutils literal"><span class="pre">any()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.some">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">some</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.some" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.any" title="fun.any"><code class="xref py py-func docutils literal notranslate"><span class="pre">any()</span></code></a>.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="special-folds">
+</section>
+<section id="special-folds">
 <h2><a class="toc-backref" href="#id4">Special folds</a><a class="headerlink" href="#special-folds" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="fun.sum">
-<code class="descclassname">fun.</code><code class="descname">sum</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.sum" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:sum()</code></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.sum">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.sum" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:sum()</span></span></dt>
 <dd><p>Sum up all iteration values. An optimized alias for:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For an empty iterator <code class="docutils literal"><span class="pre">0</span></code> is returned.</p>
+<p>For an empty iterator <code class="docutils literal notranslate"><span class="pre">0</span></code> is returned.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
 <span class="mi">15</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.product">
-<code class="descclassname">fun.</code><code class="descname">product</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.product" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:product()</code></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.product">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.product" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:product()</span></span></dt>
 <dd><p>Multiply all iteration values. An optimized alias for:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">foldl</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For an empty iterator <code class="docutils literal"><span class="pre">1</span></code> is returned.</p>
+<p>For an empty iterator <code class="docutils literal notranslate"><span class="pre">1</span></code> is returned.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
 <span class="mi">120</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.min">
-<code class="descclassname">fun.</code><code class="descname">min</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.min" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:min()</code></dt>
-<dd><p>Return a minimum value from the iterator using <code class="xref py py-func docutils literal"><span class="pre">operator.min()</span></code> or <code class="docutils literal"><span class="pre">&lt;</span></code>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.min">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.min" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:min()</span></span></dt>
+<dd><p>Return a minimum value from the iterator using <code class="xref py py-func docutils literal notranslate"><span class="pre">operator.min()</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>
 for numbers and other types respectivly. The iterator must be
 non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">1</span>
 
-<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">f&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">({</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
 <span class="n">c</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min</span><span class="p">({}))</span>
@@ -384,46 +351,46 @@ non-null, otherwise an error is raised.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.minimum">
-<code class="descclassname">fun.</code><code class="descname">minimum</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.minimum" title="Permalink to this definition">¶</a></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.min" title="fun.min"><code class="xref py py-func docutils literal"><span class="pre">min()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.minimum">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">minimum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.minimum" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.min" title="fun.min"><code class="xref py py-func docutils literal notranslate"><span class="pre">min()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.min_by">
-<code class="descclassname">fun.</code><code class="descname">min_by</code><span class="sig-paren">(</span><em>cmp</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.min_by" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:min_by(cmp)</code></dt>
-<dd><p>Return a minimum value from the iterator using the <strong>cmp</strong> as a <code class="docutils literal"><span class="pre">&lt;</span></code>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.min_by">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">min_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.min_by" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:min_by(cmp)</span></span></dt>
+<dd><p>Return a minimum value from the iterator using the <strong>cmp</strong> as a <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>
 operator. The iterator must be non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="k">function</span> <span class="nf">min_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">b</span> <span class="k">then</span> <span class="k">return</span> <span class="n">a</span> <span class="k">else</span> <span class="k">return</span> <span class="n">b</span> <span class="k">end</span> <span class="k">end</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kr">function</span> <span class="nf">min_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="kr">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">b</span> <span class="kr">then</span> <span class="kr">return</span> <span class="n">a</span> <span class="kr">else</span> <span class="kr">return</span> <span class="n">b</span> <span class="kr">end</span> <span class="kr">end</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">min_by</span><span class="p">(</span><span class="n">min_cmp</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">9</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.minimum_by">
-<code class="descclassname">fun.</code><code class="descname">minimum_by</code><span class="sig-paren">(</span><em>cmp</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.minimum_by" title="Permalink to this definition">¶</a></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.min_by" title="fun.min_by"><code class="xref py py-func docutils literal"><span class="pre">min_by()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.minimum_by">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">minimum_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.minimum_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.min_by" title="fun.min_by"><code class="xref py py-func docutils literal notranslate"><span class="pre">min_by()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.max">
-<code class="descclassname">fun.</code><code class="descname">max</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.max" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:max()</code></dt>
-<dd><p>Return a maximum value from the iterator using <code class="xref py py-func docutils literal"><span class="pre">operator.max()</span></code> or <code class="docutils literal"><span class="pre">&gt;</span></code>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.max">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.max" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:max()</span></span></dt>
+<dd><p>Return a maximum value from the iterator using <code class="xref py py-func docutils literal notranslate"><span class="pre">operator.max()</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>
 for numbers and other types respectivly.</p>
 <p>The iterator must be non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">9</span>
 
-<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">({</span><span class="s2">&quot;</span><span class="s">f&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">c&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">d&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">e&quot;</span><span class="p">}))</span>
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">({</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
 <span class="n">f</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max</span><span class="p">({}))</span>
@@ -432,35 +399,35 @@ for numbers and other types respectivly.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.maximum">
-<code class="descclassname">fun.</code><code class="descname">maximum</code><span class="sig-paren">(</span><em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.maximum" title="Permalink to this definition">¶</a></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.max" title="fun.max"><code class="xref py py-func docutils literal"><span class="pre">max()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.maximum">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">maximum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.maximum" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.max" title="fun.max"><code class="xref py py-func docutils literal notranslate"><span class="pre">max()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.max_by">
-<code class="descclassname">fun.</code><code class="descname">max_by</code><span class="sig-paren">(</span><em>cmp</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.max_by" title="Permalink to this definition">¶</a></dt>
-<dt>
-<code class="descname">iterator:max_by(cmp)</code></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.max_by">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">max_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.max_by" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">iterator:max_by(cmp)</span></span></dt>
 <dd><p>Return a maximum value from the iterator using the <strong>cmp</strong> as a <cite>&gt;</cite>
 operator. The iterator must be non-null, otherwise an error is raised.</p>
 <p>Examples:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="k">function</span> <span class="nf">max_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">b</span> <span class="k">then</span> <span class="k">return</span> <span class="n">a</span> <span class="k">else</span> <span class="k">return</span> <span class="n">b</span> <span class="k">end</span> <span class="k">end</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kr">function</span> <span class="nf">max_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="kr">if</span> <span class="o">-</span><span class="n">a</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">b</span> <span class="kr">then</span> <span class="kr">return</span> <span class="n">a</span> <span class="kr">else</span> <span class="kr">return</span> <span class="n">b</span> <span class="kr">end</span> <span class="kr">end</span>
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">max_by</span><span class="p">(</span><span class="n">max_cmp</span><span class="p">,</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="mi">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="fun.maximum_by">
-<code class="descclassname">fun.</code><code class="descname">maximum_by</code><span class="sig-paren">(</span><em>cmp</em>, <em>gen</em>, <em>param</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#fun.maximum_by" title="Permalink to this definition">¶</a></dt>
-<dd><p>An alias for <a class="reference internal" href="#fun.max_by" title="fun.max_by"><code class="xref py py-func docutils literal"><span class="pre">max_by()</span></code></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="fun.maximum_by">
+<span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">maximum_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.maximum_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference internal" href="#fun.max_by" title="fun.max_by"><code class="xref py py-func docutils literal notranslate"><span class="pre">max_by()</span></code></a>.</p>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
       </div>
@@ -478,8 +445,8 @@ operator. The iterator must be non-null, otherwise an error is raised.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2017, Roman Tsisyk.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2013-2021, Roman Tsisyk.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
