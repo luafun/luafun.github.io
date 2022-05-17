@@ -39,15 +39,15 @@
         
   <section id="under-the-hood">
 <h1>Under the Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this headline">¶</a></h1>
-<p>The section shed some light on the internal library structure and working
+<p>The section sheds some light on the internal library structure and working
 principles.</p>
 <section id="iterators">
 <h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
-<p>A basic primitive of the library after functions is an iterator. Most functions
-takes an iterator and returns a new iteraror(s). Iterators all the way down!
+<p>Another basic primitive of the library (after functions) is the iterator. Most functions
+take an iterator and return a new iterator or several ones. Iterators all the way down!
 <a class="footnote-reference brackets" href="#id8" id="id1">1</a>.</p>
-<p>The simplest iterator is (surprise!) <code class="xref py py-func docutils literal notranslate"><span class="pre">pairs()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code>
-Lua functions. Have you ever tried to call, say, <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code> function
+<p>The simplest iterators are (surprise!) the <code class="xref py py-func docutils literal notranslate"><span class="pre">pairs()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code>
+Lua functions. Have you ever tried calling, say, the <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code> function
 without using it inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop? Try to do that on any Lua
 implementation:</p>
 <div class="highlight-bash notranslate" id="iterator-triplet"><div class="highlight"><pre><span></span>&gt; <span class="o">=</span>ipairs<span class="o">({</span><span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;b&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">})</span>
@@ -55,21 +55,21 @@ implementation:</p>
 </pre></div>
 </div>
 <p>The function returned three strange values which look useless without a <code class="docutils literal notranslate"><span class="pre">for</span></code>
-loop. We call these values <strong>iterator triplet</strong>.
-Let’s see how each value is used for:</p>
+loop. We call these values an <strong>iterator triplet</strong>.
+Let’s see what each value is used for:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">gen</span></code> – first value</dt><dd><p>A generating function that can produce a next value on each iteration.
 Usually returns a new <code class="docutils literal notranslate"><span class="pre">state</span></code> and iteration values (multireturn).</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">param</span></code> – second value</dt><dd><p>A permanent (constant) parameter of a generating function is used to create
-specific instance of the generating function. For example, a table itself
-for <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> case.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">param</span></code> – second value</dt><dd><p>A permanent (constant) parameter of the generating function. It is used to create
+a specific instance of the generating function. For example, the table itself
+in the <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> case.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">state</span></code> – third value</dt><dd><p>A some transient state of an iterator that is changed after each iteration.
-For example, an array index for <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> case.</p>
+For example, the array index in the <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> case.</p>
 </dd>
 </dl>
-<p>Try to call <code class="docutils literal notranslate"><span class="pre">gen</span></code> function manually:</p>
+<p>Try calling the <code class="docutils literal notranslate"><span class="pre">gen</span></code> function manually:</p>
 <blockquote>
 <div><div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">gen</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="nb">ipairs</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">})</span>
 <span class="o">&gt;</span> <span class="o">=</span><span class="n">gen</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
@@ -79,10 +79,10 @@ For example, an array index for <code class="docutils literal notranslate"><span
 </div></blockquote>
 <p>The <code class="docutils literal notranslate"><span class="pre">gen</span></code> function returned a new state <code class="docutils literal notranslate"><span class="pre">1</span></code> and the next iteration
 value <code class="docutils literal notranslate"><span class="pre">a</span></code>. The second call to <code class="docutils literal notranslate"><span class="pre">gen</span></code> with the new state will return the next
-state  and the next iteration value. When the iterator finishes to the end
+state and the next iteration value. When the iterator gets to the end
 the <code class="docutils literal notranslate"><span class="pre">nil</span></code> value is returned instead of the next state.</p>
 <p><strong>Please do not panic!</strong> You do not have to use these values directly.
-It is just a nice trick to get <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loop working in Lua.</p>
+It is just a nice trick to get <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loops working in Lua.</p>
 </section>
 <section id="iterations">
 <h2>Iterations<a class="headerlink" href="#iterations" title="Permalink to this headline">¶</a></h2>
@@ -108,15 +108,14 @@ end
 </pre></div>
 </div>
 <p>What does it mean for us?</p>
-<ul>
+<ul class="simple">
 <li><p>An iterator can be used together with <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> to generate a loop</p></li>
-<li><p>An iterator is fully defined using <code class="docutils literal notranslate"><span class="pre">gen</span></code>, <code class="docutils literal notranslate"><span class="pre">param</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> iterator
+<li><p>An iterator is fully defined by the <code class="docutils literal notranslate"><span class="pre">gen</span></code>, <code class="docutils literal notranslate"><span class="pre">param</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> iterator
 triplet</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">nil</span></code> state marks the end of an iteration</p></li>
 <li><p>An iterator can return an arbitrary number of values (multireturn)</p></li>
-<li><p>It is possible to make some wrapping functions to take an iterator and</p>
-<p>return a new modified iterator</p>
-</li>
+<li><p>It is possible to make some wrapping functions to take an iterator and
+return a new modified iterator</p></li>
 </ul>
 <p><strong>The library provides a set of iterators</strong> that can be used like <code class="docutils literal notranslate"><span class="pre">pairs</span></code>
 and <code class="docutils literal notranslate"><span class="pre">ipairs</span></code>.</p>
@@ -125,13 +124,13 @@ and <code class="docutils literal notranslate"><span class="pre">ipairs</span></
 <h2>Iterator Types<a class="headerlink" href="#iterator-types" title="Permalink to this headline">¶</a></h2>
 <section id="pure-functional-iterators">
 <h3>Pure functional iterators<a class="headerlink" href="#pure-functional-iterators" title="Permalink to this headline">¶</a></h3>
-<p>Iterators can be either pure functional or have some side effects and returns
-different values for some initial conditions <a class="footnote-reference brackets" href="#pure-function" id="id3">3</a>. An <strong>iterator is
-pure functional</strong> if it meets the following criteria:</p>
+<p>Iterators can be either purely functional or have some side effects and return
+different values for the same initial conditions <a class="footnote-reference brackets" href="#pure-function" id="id3">3</a>. An <strong>iterator is
+purely functional</strong> if it meets the following criteria:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">gen</span></code> function always returns the same values for the same <code class="docutils literal notranslate"><span class="pre">param</span></code> and
 <code class="docutils literal notranslate"><span class="pre">state</span></code> values (idempotence property)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">param</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> values are not modified during <code class="docutils literal notranslate"><span class="pre">gen</span></code> call and
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> values are not modified during the <code class="docutils literal notranslate"><span class="pre">gen</span></code> call and
 a new <code class="docutils literal notranslate"><span class="pre">state</span></code> object is returned instead (referential transparency
 property).</p></li>
 </ul>
@@ -145,7 +144,7 @@ function use these properties.</p>
 (never end).
 Since there is no way to determine automatically if an iterator is finite or
 not <a class="footnote-reference brackets" href="#turing" id="id4">4</a> the library function can not automatically resolve infinite
-loops. It is your obligation to do not pass infinite iterator to reducing
+loops. It is your obligation not to pass infinite iterators to reducing
 functions.</p>
 </section>
 </section>
@@ -158,10 +157,10 @@ machine code and executing them.</p>
 <p>First profiling information for loops is collected. After a hot loop has been
 identified, a special tracing mode is entered which records all executed
 operations of that loop. This sequence of operations is called a <strong>trace</strong>.
-The trace is then optimized and compiled to machine code (trace). When this
+The trace is then optimized and compiled to machine code. When this
 loop is executed again the compiled trace is called instead of the program
 counterpart <a class="footnote-reference brackets" href="#id9" id="id5">5</a>.</p>
-<p>Why the tracing JIT is important for us? The LuaJIT tracing compiler can detect
+<p>Why is tracing JIT important for us? The LuaJIT tracing compiler can detect
 tail-, up- and down-recursion <a class="footnote-reference brackets" href="#luajit-recursion" id="id6">6</a>, unroll compositions of
 functions and inline high-order functions <a class="footnote-reference brackets" href="#luajit-optimizations" id="id7">7</a>.
 All of these concepts make the foundation for functional programming.</p>
