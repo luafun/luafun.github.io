@@ -1,23 +1,25 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Operators &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Under the Hood" href="under_the_hood.html" />
     <link rel="prev" title="Compositions" href="compositions.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Operators</span></h2>
       </div>
@@ -36,10 +38,10 @@
         
         
   <section id="module-fun.operator">
-<span id="operators"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Operators</a><a class="headerlink" href="#module-fun.operator" title="Permalink to this heading">¶</a></h1>
+<span id="operators"></span><h1><a class="toc-backref" href="#id1">Operators</a><a class="headerlink" href="#module-fun.operator" title="Permalink to this headline">¶</a></h1>
 <p>This auxiliary module exports a set of Lua operators as intrinsic functions
 to use with the library high-order primitives.</p>
-<nav class="contents" id="contents">
+<div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#module-fun.operator" id="id1">Operators</a></p>
@@ -51,13 +53,13 @@ to use with the library high-order primitives.</p>
 </ul>
 </li>
 </ul>
-</nav>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>op</strong> can be used as a shortcut to <strong>operator</strong>.</p>
 </div>
 <section id="comparison-operators">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Comparison operators</a><a class="headerlink" href="#comparison-operators" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Comparison operators</a><a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.4.3">Lua Relational Operators</a></p>
@@ -66,7 +68,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.le">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">le</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.le" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> &lt;= <strong>b</strong></p>
 </dd>
 </dl>
@@ -76,7 +78,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.lt">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">lt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.lt" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> &lt; <strong>b</strong></p>
 </dd>
 </dl>
@@ -86,7 +88,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.eq">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">eq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.eq" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> == <strong>b</strong></p>
 </dd>
 </dl>
@@ -96,7 +98,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.ne">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">ne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.ne" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> ~= <strong>b</strong></p>
 </dd>
 </dl>
@@ -106,7 +108,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.ge">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">ge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.ge" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> &gt;= <strong>b</strong></p>
 </dd>
 </dl>
@@ -116,7 +118,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.gt">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">gt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.gt" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> &gt; <strong>b</strong></p>
 </dd>
 </dl>
@@ -124,7 +126,7 @@ to use with the library high-order primitives.</p>
 
 </section>
 <section id="arithmetic-operators">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Arithmetic operators</a><a class="headerlink" href="#arithmetic-operators" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Arithmetic operators</a><a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.4.1">Lua Arithmetic Operators</a></p>
@@ -133,7 +135,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.add">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.add" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> + <strong>b</strong></p>
 </dd>
 </dl>
@@ -149,7 +151,7 @@ to use with the library high-order primitives.</p>
 <dt class="sig sig-object py" id="fun.operator.truediv">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">truediv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.truediv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> / <strong>b</strong></p>
 </dd>
 </dl>
@@ -167,7 +169,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.floordiv">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">floordiv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.floordiv" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>math.floor(<strong>a</strong> / <strong>b</strong>)</p>
 </dd>
 </dl>
@@ -212,7 +214,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.mod">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">mod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.mod" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> % <strong>b</strong></p>
 </dd>
 </dl>
@@ -236,7 +238,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.neq">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">neq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.neq" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>-<strong>a</strong></p>
 </dd>
 </dl>
@@ -252,7 +254,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.pow">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.pow" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>math.pow(<strong>a</strong>, <strong>b</strong>)</p>
 </dd>
 </dl>
@@ -262,7 +264,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.sub">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.sub" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> - <strong>b</strong></p>
 </dd>
 </dl>
@@ -270,7 +272,7 @@ Examples:</p>
 
 </section>
 <section id="string-operators">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">String operators</a><a class="headerlink" href="#string-operators" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">String operators</a><a class="headerlink" href="#string-operators" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.4.5">Lua Concatenation Operator</a></p>
@@ -279,7 +281,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.concat">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.concat" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> .. <strong>b</strong></p>
 </dd>
 </dl>
@@ -289,7 +291,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.len">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">len</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.len" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p># <strong>a</strong></p>
 </dd>
 </dl>
@@ -303,7 +305,7 @@ Examples:</p>
 
 </section>
 <section id="logical-operators">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Logical operators</a><a class="headerlink" href="#logical-operators" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Logical operators</a><a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.4.4">Lua Logical Operators</a></p>
@@ -312,7 +314,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.land">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">land</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.land" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> and <strong>b</strong></p>
 </dd>
 </dl>
@@ -322,7 +324,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.lor">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">lor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.lor" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>a</strong> or <strong>b</strong></p>
 </dd>
 </dl>
@@ -332,7 +334,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.lnot">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">lnot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.lnot" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>not <strong>a</strong></p>
 </dd>
 </dl>
@@ -342,7 +344,7 @@ Examples:</p>
 <dt class="sig sig-object py" id="fun.operator.truth">
 <span class="sig-prename descclassname"><span class="pre">fun.operator.</span></span><span class="sig-name descname"><span class="pre">truth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.operator.truth" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>not not <strong>a</strong></p>
 </dd>
 </dl>
@@ -381,7 +383,7 @@ Examples:</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

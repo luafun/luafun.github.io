@@ -1,23 +1,25 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Reducing &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Transformations" href="transformations.html" />
     <link rel="prev" title="Filtering" href="filtering.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Reducing</span></h2>
       </div>
@@ -36,11 +38,11 @@
         
         
   <section id="reducing">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Reducing</a><a class="headerlink" href="#reducing" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id1">Reducing</a><a class="headerlink" href="#reducing" title="Permalink to this headline">¶</a></h1>
 <p>The section contains functions to analyze iteration values and recombine
 through use of a given combining operation the results of recursively processing
 its constituent parts, building up a return value</p>
-<nav class="contents" id="contents">
+<div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#reducing" id="id1">Reducing</a></p>
@@ -51,21 +53,21 @@ its constituent parts, building up a return value</p>
 </ul>
 </li>
 </ul>
-</nav>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An attempt to use infinity iterators with the most function from
 the module causes an infinite loop.</p>
 </div>
 <section id="folds">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Folds</a><a class="headerlink" href="#folds" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Folds</a><a class="headerlink" href="#folds" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.foldl">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">foldl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accfun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.foldl" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:reduce(accfun,</span> <span class="pre">initval)</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>accfun</strong> – an accumulating function</p></li>
 <li><p><strong>initval</strong> – an initial value that passed to <strong>accfun</strong> on the first
@@ -111,7 +113,7 @@ Equivalent to:</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:length()</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>a number of elements in <code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.</p>
 </dd>
 </dl>
@@ -144,7 +146,7 @@ basic array and string iterators.</p>
 <dt class="sig sig-object py" id="fun.totable">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">totable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.totable" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>a new table (array) from iterated values.</p>
 </dd>
 </dl>
@@ -168,7 +170,7 @@ basic array and string iterators.</p>
 <dt class="sig sig-object py" id="fun.tomap">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">tomap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.tomap" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>a new table (map) from iterated values.</p>
 </dd>
 </dl>
@@ -191,7 +193,7 @@ basic array and string iterators.</p>
 
 </section>
 <section id="predicates">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Predicates</a><a class="headerlink" href="#predicates" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Predicates</a><a class="headerlink" href="#predicates" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.is_prefix_of">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">is_prefix_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterator1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterator2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.is_prefix_of" title="Permalink to this definition">¶</a></dt>
@@ -215,10 +217,10 @@ is a prefix of the second.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:is_null()</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>true when <cite>gen, param, state`</cite> iterator is empty or finished.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>false otherwise.</p>
 </dd>
 </dl>
@@ -241,7 +243,7 @@ is a prefix of the second.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:all(predicate)</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>predicate</strong> – a predicate</p>
 </dd>
 </dl>
@@ -268,7 +270,7 @@ is a prefix of the second.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:any(predicate)</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>predicate</strong> – a predicate</p>
 </dd>
 </dl>
@@ -293,7 +295,7 @@ infinity iterators that have at least one satisfying value might work.</p>
 
 </section>
 <section id="special-folds">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Special folds</a><a class="headerlink" href="#special-folds" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Special folds</a><a class="headerlink" href="#special-folds" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.sum">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.sum" title="Permalink to this definition">¶</a></dt>
@@ -444,7 +446,7 @@ operator. The iterator must be non-null, otherwise an error is raised.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

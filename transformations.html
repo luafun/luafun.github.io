@@ -1,23 +1,25 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Transformations &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Compositions" href="compositions.html" />
     <link rel="prev" title="Reducing" href="reducing.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Transformations</span></h2>
       </div>
@@ -36,17 +38,17 @@
         
         
   <section id="transformations">
-<h1>Transformations<a class="headerlink" href="#transformations" title="Permalink to this heading">¶</a></h1>
+<h1>Transformations<a class="headerlink" href="#transformations" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.map">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.map" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:map(fun)</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>fun</strong> (<em>(</em><em>function</em><em>(</em><em>...</em><em>) </em><em>-&gt; </em><em>...</em><em>)</em>) – a function to apply</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a new iterator</p>
 </dd>
 </dl>
@@ -76,7 +78,7 @@ and no values are buffered.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:enumerate()</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>a new iterator</p>
 </dd>
 </dl>
@@ -108,7 +110,7 @@ on the fly and no values are buffered.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:intersperse(x)</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>a new iterator</p>
 </dd>
 </dl>
@@ -151,7 +153,7 @@ number of elements.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

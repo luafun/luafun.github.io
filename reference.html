@@ -1,23 +1,25 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>API Reference &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Basic Functions" href="basic.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>API Reference</span></h2>
       </div>
@@ -36,157 +38,36 @@
         
         
   <section id="module-fun">
-<span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-fun" title="Permalink to this heading">¶</a></h1>
+<span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-fun" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#fun.iter"><code class="docutils literal notranslate"><span class="pre">iter()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#fun.each"><code class="docutils literal notranslate"><span class="pre">each()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#fun.for_each"><code class="docutils literal notranslate"><span class="pre">for_each()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#fun.foreach"><code class="docutils literal notranslate"><span class="pre">foreach()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generators.html">Generators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="generators.html#finite-generators">Finite Generators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.range"><code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="generators.html#infinity-generators">Infinity Generators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.xrepeat"><code class="docutils literal notranslate"><span class="pre">xrepeat()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.replicate"><code class="docutils literal notranslate"><span class="pre">replicate()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.tabulate"><code class="docutils literal notranslate"><span class="pre">tabulate()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.zeros"><code class="docutils literal notranslate"><span class="pre">zeros()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.ones"><code class="docutils literal notranslate"><span class="pre">ones()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="generators.html#random-sampling">Random sampling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generators.html#fun.rands"><code class="docutils literal notranslate"><span class="pre">rands()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="generators.html#finite-generators">Finite Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generators.html#infinity-generators">Infinity Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generators.html#random-sampling">Random sampling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="slicing.html">Slicing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="slicing.html#basic">Basic</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.nth"><code class="docutils literal notranslate"><span class="pre">nth()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.head"><code class="docutils literal notranslate"><span class="pre">head()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.car"><code class="docutils literal notranslate"><span class="pre">car()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.tail"><code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.cdr"><code class="docutils literal notranslate"><span class="pre">cdr()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="slicing.html#basic">Basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slicing.html#subsequences">Subsequences</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="slicing.html#subsequences">Subsequences</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.take_n"><code class="docutils literal notranslate"><span class="pre">take_n()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.take_while"><code class="docutils literal notranslate"><span class="pre">take_while()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.take"><code class="docutils literal notranslate"><span class="pre">take()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.drop_n"><code class="docutils literal notranslate"><span class="pre">drop_n()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.drop_while"><code class="docutils literal notranslate"><span class="pre">drop_while()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.drop"><code class="docutils literal notranslate"><span class="pre">drop()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.span"><code class="docutils literal notranslate"><span class="pre">span()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.split"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html#fun.split_at"><code class="docutils literal notranslate"><span class="pre">split_at()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="indexing.html#fun.index"><code class="docutils literal notranslate"><span class="pre">index()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="indexing.html#fun.index_of"><code class="docutils literal notranslate"><span class="pre">index_of()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="indexing.html#fun.elem_index"><code class="docutils literal notranslate"><span class="pre">elem_index()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="indexing.html#fun.indexes"><code class="docutils literal notranslate"><span class="pre">indexes()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="indexing.html#fun.indices"><code class="docutils literal notranslate"><span class="pre">indices()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="indexing.html#fun.elem_indexes"><code class="docutils literal notranslate"><span class="pre">elem_indexes()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="indexing.html#fun.elem_indices"><code class="docutils literal notranslate"><span class="pre">elem_indices()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="filtering.html">Filtering</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="filtering.html#fun.filter"><code class="docutils literal notranslate"><span class="pre">filter()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filtering.html#fun.remove_if"><code class="docutils literal notranslate"><span class="pre">remove_if()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filtering.html#fun.grep"><code class="docutils literal notranslate"><span class="pre">grep()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filtering.html#fun.partition"><code class="docutils literal notranslate"><span class="pre">partition()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">Filtering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reducing.html">Reducing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reducing.html#folds">Folds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.foldl"><code class="docutils literal notranslate"><span class="pre">foldl()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.reduce"><code class="docutils literal notranslate"><span class="pre">reduce()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.length"><code class="docutils literal notranslate"><span class="pre">length()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.totable"><code class="docutils literal notranslate"><span class="pre">totable()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.tomap"><code class="docutils literal notranslate"><span class="pre">tomap()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reducing.html#folds">Folds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reducing.html#predicates">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reducing.html#special-folds">Special folds</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="reducing.html#predicates">Predicates</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.is_prefix_of"><code class="docutils literal notranslate"><span class="pre">is_prefix_of()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.is_null"><code class="docutils literal notranslate"><span class="pre">is_null()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.all"><code class="docutils literal notranslate"><span class="pre">all()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.every"><code class="docutils literal notranslate"><span class="pre">every()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.any"><code class="docutils literal notranslate"><span class="pre">any()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.some"><code class="docutils literal notranslate"><span class="pre">some()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="reducing.html#special-folds">Special folds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.sum"><code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.product"><code class="docutils literal notranslate"><span class="pre">product()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.min"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.minimum"><code class="docutils literal notranslate"><span class="pre">minimum()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.min_by"><code class="docutils literal notranslate"><span class="pre">min_by()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.minimum_by"><code class="docutils literal notranslate"><span class="pre">minimum_by()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.max"><code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.maximum"><code class="docutils literal notranslate"><span class="pre">maximum()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.max_by"><code class="docutils literal notranslate"><span class="pre">max_by()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="reducing.html#fun.maximum_by"><code class="docutils literal notranslate"><span class="pre">maximum_by()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="transformations.html">Transformations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="transformations.html#fun.map"><code class="docutils literal notranslate"><span class="pre">map()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="transformations.html#fun.enumerate"><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="transformations.html#fun.intersperse"><code class="docutils literal notranslate"><span class="pre">intersperse()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="compositions.html">Compositions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="compositions.html#fun.zip"><code class="docutils literal notranslate"><span class="pre">zip()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="compositions.html#fun.cycle"><code class="docutils literal notranslate"><span class="pre">cycle()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="compositions.html#fun.chain"><code class="docutils literal notranslate"><span class="pre">chain()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compositions.html">Compositions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="operators.html#comparison-operators">Comparison operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.le"><code class="docutils literal notranslate"><span class="pre">le()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.lt"><code class="docutils literal notranslate"><span class="pre">lt()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.eq"><code class="docutils literal notranslate"><span class="pre">eq()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.ne"><code class="docutils literal notranslate"><span class="pre">ne()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.ge"><code class="docutils literal notranslate"><span class="pre">ge()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.gt"><code class="docutils literal notranslate"><span class="pre">gt()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="operators.html#arithmetic-operators">Arithmetic operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.add"><code class="docutils literal notranslate"><span class="pre">add()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.div"><code class="docutils literal notranslate"><span class="pre">div()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.truediv"><code class="docutils literal notranslate"><span class="pre">truediv()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.floordiv"><code class="docutils literal notranslate"><span class="pre">floordiv()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.intdiv"><code class="docutils literal notranslate"><span class="pre">intdiv()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.mod"><code class="docutils literal notranslate"><span class="pre">mod()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.neq"><code class="docutils literal notranslate"><span class="pre">neq()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.unm"><code class="docutils literal notranslate"><span class="pre">unm()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.pow"><code class="docutils literal notranslate"><span class="pre">pow()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.sub"><code class="docutils literal notranslate"><span class="pre">sub()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="operators.html#string-operators">String operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.concat"><code class="docutils literal notranslate"><span class="pre">concat()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.len"><code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.length"><code class="docutils literal notranslate"><span class="pre">length()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="operators.html#logical-operators">Logical operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.land"><code class="docutils literal notranslate"><span class="pre">land()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.lor"><code class="docutils literal notranslate"><span class="pre">lor()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.lnot"><code class="docutils literal notranslate"><span class="pre">lnot()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="operators.html#fun.operator.truth"><code class="docutils literal notranslate"><span class="pre">truth()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#comparison-operators">Comparison operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#arithmetic-operators">Arithmetic operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#string-operators">String operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#logical-operators">Logical operators</a></li>
 </ul>
 </li>
 </ul>
@@ -210,7 +91,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
