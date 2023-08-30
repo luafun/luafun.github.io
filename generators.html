@@ -1,23 +1,25 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Generators &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Slicing" href="slicing.html" />
     <link rel="prev" title="Basic Functions" href="basic.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Generators</span></h2>
       </div>
@@ -36,23 +38,23 @@
         
         
   <section id="generators">
-<h1>Generators<a class="headerlink" href="#generators" title="Permalink to this heading">¶</a></h1>
+<h1>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h1>
 <p>This section contains a number of useful generators modeled after Standard ML,
 Haskell, Python, Ruby, JavaScript and other languages.</p>
 <section id="finite-generators">
-<h2>Finite Generators<a class="headerlink" href="#finite-generators" title="Permalink to this heading">¶</a></h2>
+<h2>Finite Generators<a class="headerlink" href="#finite-generators" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.range">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">range</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <span class="optional">]</span><em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#fun.range" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>start</strong> (<em>number</em>) – an endpoint of the interval (see below)</p></li>
 <li><p><strong>stop</strong> (<em>number</em>) – an endpoint of the interval (see below)</p></li>
 <li><p><strong>step</strong> (<em>number</em>) – a step</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>an iterator</p>
 </dd>
 </dl>
@@ -120,15 +122,15 @@ equal to <em>stop</em>; if <em>step</em> is negative, the last element is the sm
 
 </section>
 <section id="infinity-generators">
-<h2>Infinity Generators<a class="headerlink" href="#infinity-generators" title="Permalink to this heading">¶</a></h2>
+<h2>Infinity Generators<a class="headerlink" href="#infinity-generators" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.duplicate">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.duplicate" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>...</strong> (<em>non nil</em>) – objects to duplicate</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>an iterator</p>
 </dd>
 </dl>
@@ -168,10 +170,10 @@ that passed to the iterator are returned as-is during the iteration.</p>
 <dt class="sig sig-object py" id="fun.tabulate">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">tabulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.tabulate" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>fun</strong> (<em>function</em><em>(</em><em>n: uint</em><em>) </em><em>-&gt; </em><em>...</em>) – an unary generating function</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>an iterator</p>
 </dd>
 </dl>
@@ -198,7 +200,7 @@ indefinitely.</p>
 <dt class="sig sig-object py" id="fun.zeros">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">zeros</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fun.zeros" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>an iterator</p>
 </dd>
 </dl>
@@ -218,7 +220,7 @@ indefinitely.</p>
 <dt class="sig sig-object py" id="fun.ones">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">ones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fun.ones" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>an iterator</p>
 </dd>
 </dl>
@@ -236,18 +238,18 @@ indefinitely.</p>
 
 </section>
 <section id="random-sampling">
-<h2>Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this heading">¶</a></h2>
+<h2>Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.rands">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">rands</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#fun.rands" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> (<em>uint</em>) – an endpoint of the interval (see below)</p></li>
 <li><p><strong>m</strong> (<em>uint</em>) – an endpoint of the interval (see below)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>an iterator</p>
 </dd>
 </dl>
@@ -313,7 +315,7 @@ expected with some library functions.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
