@@ -1,25 +1,23 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Getting Started &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API Reference" href="reference.html" />
     <link rel="prev" title="Introduction" href="intro.html" /> 
   </head><body>
-      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Getting Started</span></h2>
       </div>
@@ -38,10 +36,10 @@
         
         
   <section id="getting-started">
-<h1><a class="toc-backref" href="#id1">Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
 <p>Please jump to <a class="reference internal" href="#using-the-library">Using the Library</a> section if you are familiar with Lua and
 LuaJIT.</p>
-<div class="contents topic" id="contents">
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#getting-started" id="id1">Getting Started</a></p>
@@ -66,9 +64,9 @@ LuaJIT.</p>
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="prerequisites">
-<h2><a class="toc-backref" href="#id2">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <p>The library is designed for <a class="reference external" href="http://luajit.org/">LuaJIT</a>. <strong>LuaJIT 2.1 alpha</strong> is high^W <strong>Highly</strong>
 recommended for performance reasons. Lua 5.1–5.3 are also supported.</p>
 <p>The library is platform-independent and expected to work on all platforms that
@@ -78,112 +76,112 @@ e.g. <a class="reference external" href="http://tarantool.org/">Tarantool</a> or
 documentation from source files.</p>
 </section>
 <section id="installing-luajit">
-<h2><a class="toc-backref" href="#id3">Installing LuaJIT</a><a class="headerlink" href="#installing-luajit" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Installing LuaJIT</a><a class="headerlink" href="#installing-luajit" title="Permalink to this heading">¶</a></h2>
 <p>You can build LuaJIT from sources or install it from a binary archive.</p>
 <section id="from-sources">
-<h3><a class="toc-backref" href="#id4">From Sources</a><a class="headerlink" href="#from-sources" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">From Sources</a><a class="headerlink" href="#from-sources" title="Permalink to this heading">¶</a></h3>
 <p>1. Clone LuaJIT git repository. Please note that <strong>v2.1</strong> branch is needed.
 You can always select this branch using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">v2.1</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone http://luajit.org/git/luajit-2.0.git -b v2.1 luajit-2.1
-Cloning into <span class="s1">&#39;luajit-2.1&#39;</span>...
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>http://luajit.org/git/luajit-2.0.git<span class="w"> </span>-b<span class="w"> </span>v2.1<span class="w"> </span>luajit-2.1
+Cloning<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;luajit-2.1&#39;</span>...
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Compile LuaJIT</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> luajit-2.1/
-luajit-2.1 $ make -j8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>luajit-2.1/
+luajit-2.1<span class="w"> </span>$<span class="w"> </span>make<span class="w"> </span>-j8
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Install LuaJIT</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>luajit-2.1 $ make install
-luajit-2.1 $ ln -s /usr/local/bin/luajit-2.1.0-alpha /usr/local/bin/luajit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>luajit-2.1<span class="w"> </span>$<span class="w"> </span>make<span class="w"> </span>install
+luajit-2.1<span class="w"> </span>$<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/bin/luajit-2.1.0-alpha<span class="w"> </span>/usr/local/bin/luajit
 </pre></div>
 </div>
 <p>Install operation might require root permissions. However, you can install
 LuaJIT into your home directory.</p>
 </section>
 <section id="from-a-binary-archive">
-<h3><a class="toc-backref" href="#id5">From a Binary Archive</a><a class="headerlink" href="#from-a-binary-archive" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">From a Binary Archive</a><a class="headerlink" href="#from-a-binary-archive" title="Permalink to this heading">¶</a></h3>
 <p>If operations above look too complicated for you, you always can download a
 binary archive from <a class="reference external" href="http://luajit.org/download.html">http://luajit.org/download.html</a> page.
 Your favorite package manager may also have LuaJIT packages.</p>
 </section>
 <section id="running-luajit">
-<h3><a class="toc-backref" href="#id6">Running LuaJIT</a><a class="headerlink" href="#running-luajit" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Running LuaJIT</a><a class="headerlink" href="#running-luajit" title="Permalink to this heading">¶</a></h3>
 <p>Ensure that freshly installed LuaJIT works:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ luajit
-LuaJIT <span class="m">2</span>.1.0-alpha -- Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2005</span>-2013 Mike Pall. http://luajit.org/
-JIT: ON SSE2 SSE3 SSE4.1 fold cse dce fwd dse narrow loop abc sink fuse
-&gt; <span class="o">=</span> <span class="m">2</span> + <span class="m">2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>luajit
+LuaJIT<span class="w"> </span><span class="m">2</span>.1.0-alpha<span class="w"> </span>--<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2005</span>-2013<span class="w"> </span>Mike<span class="w"> </span>Pall.<span class="w"> </span>http://luajit.org/
+JIT:<span class="w"> </span>ON<span class="w"> </span>SSE2<span class="w"> </span>SSE3<span class="w"> </span>SSE4.1<span class="w"> </span>fold<span class="w"> </span>cse<span class="w"> </span>dce<span class="w"> </span>fwd<span class="w"> </span>dse<span class="w"> </span>narrow<span class="w"> </span>loop<span class="w"> </span>abc<span class="w"> </span>sink<span class="w"> </span>fuse
+&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>+<span class="w"> </span><span class="m">2</span>
 <span class="m">4</span>
 </pre></div>
 </div>
 <p>It is good idea to use LuaJIT CLI under <code class="docutils literal notranslate"><span class="pre">rlwrap</span></code> (on nix platforms):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">luajit</span><span class="o">=</span><span class="s2">&quot;rlwrap luajit&quot;</span>
-$ luajit
-LuaJIT <span class="m">2</span>.1.0-alpha -- Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2005</span>-2013 Mike Pall. http://luajit.org/
-JIT: ON SSE2 SSE3 SSE4.1 fold cse dce fwd dse narrow loop abc sink fuse
-&gt; <span class="o">=</span> <span class="m">2</span> + <span class="m">2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">luajit</span><span class="o">=</span><span class="s2">&quot;rlwrap luajit&quot;</span>
+$<span class="w"> </span>luajit
+LuaJIT<span class="w"> </span><span class="m">2</span>.1.0-alpha<span class="w"> </span>--<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2005</span>-2013<span class="w"> </span>Mike<span class="w"> </span>Pall.<span class="w"> </span>http://luajit.org/
+JIT:<span class="w"> </span>ON<span class="w"> </span>SSE2<span class="w"> </span>SSE3<span class="w"> </span>SSE4.1<span class="w"> </span>fold<span class="w"> </span>cse<span class="w"> </span>dce<span class="w"> </span>fwd<span class="w"> </span>dse<span class="w"> </span>narrow<span class="w"> </span>loop<span class="w"> </span>abc<span class="w"> </span>sink<span class="w"> </span>fuse
+&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>+<span class="w"> </span><span class="m">2</span>
 <span class="m">4</span>
-&gt; <span class="o">=</span> <span class="m">2</span> + <span class="m">2</span> &lt;!-- You can use arrows, completion and so on, like <span class="k">in</span> Bash
+&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>+<span class="w"> </span><span class="m">2</span><span class="w"> </span>&lt;!--<span class="w"> </span>You<span class="w"> </span>can<span class="w"> </span>use<span class="w"> </span>arrows,<span class="w"> </span>completion<span class="w"> </span>and<span class="w"> </span>so<span class="w"> </span>on,<span class="w"> </span>like<span class="w"> </span><span class="k">in</span><span class="w"> </span>Bash
 </pre></div>
 </div>
 </section>
 </section>
 <section id="installing-the-library">
-<h2><a class="toc-backref" href="#id7">Installing the Library</a><a class="headerlink" href="#installing-the-library" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Installing the Library</a><a class="headerlink" href="#installing-the-library" title="Permalink to this heading">¶</a></h2>
 <section id="using-luarocks">
-<h3><a class="toc-backref" href="#id8">Using LuaRocks</a><a class="headerlink" href="#using-luarocks" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Using LuaRocks</a><a class="headerlink" href="#using-luarocks" title="Permalink to this heading">¶</a></h3>
 <p>Use the <a class="reference external" href="https://raw.github.com/luafun/luafun/master/fun-scm-1.rockspec">rockspec</a> file.</p>
 </section>
 <section id="using-git">
-<h3><a class="toc-backref" href="#id9">Using git</a><a class="headerlink" href="#using-git" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Using git</a><a class="headerlink" href="#using-git" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Clone Lua Fun repository:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/luafun/luafun.git
-$ <span class="nb">cd</span> luafun
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git://github.com/luafun/luafun.git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>luafun
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Run tests (optional):</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>luafun $ <span class="nb">cd</span> tests
-luafun/tests $ ./runtest *.lua
-Testing basic.lua
-Testing compositions.lua
-Testing filters.lua
-Testing folds.lua
-Testing generators.lua
-Testing slices.lua
-Testing transformations.lua
-All tests have passed!
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>luafun<span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tests
+luafun/tests<span class="w"> </span>$<span class="w"> </span>./runtest<span class="w"> </span>*.lua
+Testing<span class="w"> </span>basic.lua
+Testing<span class="w"> </span>compositions.lua
+Testing<span class="w"> </span>filters.lua
+Testing<span class="w"> </span>folds.lua
+Testing<span class="w"> </span>generators.lua
+Testing<span class="w"> </span>slices.lua
+Testing<span class="w"> </span>transformations.lua
+All<span class="w"> </span>tests<span class="w"> </span>have<span class="w"> </span>passed!
 </pre></div>
 </div>
 </section>
 <section id="using-wget">
-<h3><a class="toc-backref" href="#id10">Using wget</a><a class="headerlink" href="#using-wget" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Using wget</a><a class="headerlink" href="#using-wget" title="Permalink to this heading">¶</a></h3>
 <p>Just download <a class="reference external" href="https://raw.github.com/luafun/luafun/master/fun.lua">https://raw.github.com/luafun/luafun/master/fun.lua</a> file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ wget https://raw.github.com/luafun/luafun/master/fun.lua
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wget<span class="w"> </span>https://raw.github.com/luafun/luafun/master/fun.lua
 </pre></div>
 </div>
 </section>
 </section>
 <section id="using-the-library">
-<h2><a class="toc-backref" href="#id11">Using the Library</a><a class="headerlink" href="#using-the-library" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Using the Library</a><a class="headerlink" href="#using-the-library" title="Permalink to this heading">¶</a></h2>
 <p>Try to run LuaJIT in the same directory where <code class="docutils literal notranslate"><span class="pre">fun.lua</span></code> file is located:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> luafun $ luajit
- LuaJIT <span class="m">2</span>.1.0-alpha -- Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2005</span>-2013 Mike Pall. http://luajit.org/
- JIT: ON SSE2 SSE3 fold cse dce fwd dse narrow loop abc sink fuse
-<span class="hll"> &gt; <span class="nv">fun</span> <span class="o">=</span> require <span class="s1">&#39;fun&#39;</span>
-</span> &gt;
- &gt; <span class="k">for</span> _k, a <span class="k">in</span> fun.range<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="k">do</span> print<span class="o">(</span>a<span class="o">)</span> end
- <span class="m">1</span>
- <span class="m">2</span>
- <span class="m">3</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>luafun<span class="w"> </span>$<span class="w"> </span>luajit
+<span class="w"> </span>LuaJIT<span class="w"> </span><span class="m">2</span>.1.0-alpha<span class="w"> </span>--<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2005</span>-2013<span class="w"> </span>Mike<span class="w"> </span>Pall.<span class="w"> </span>http://luajit.org/
+<span class="w"> </span>JIT:<span class="w"> </span>ON<span class="w"> </span>SSE2<span class="w"> </span>SSE3<span class="w"> </span>fold<span class="w"> </span>cse<span class="w"> </span>dce<span class="w"> </span>fwd<span class="w"> </span>dse<span class="w"> </span>narrow<span class="w"> </span>loop<span class="w"> </span>abc<span class="w"> </span>sink<span class="w"> </span>fuse
+<span class="hll"><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>require<span class="w"> </span><span class="s1">&#39;fun&#39;</span>
+</span><span class="w"> </span>&gt;
+<span class="w"> </span>&gt;<span class="w"> </span><span class="k">for</span><span class="w"> </span>_k,<span class="w"> </span>a<span class="w"> </span><span class="k">in</span><span class="w"> </span>fun.range<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>print<span class="o">(</span>a<span class="o">)</span><span class="w"> </span>end
+<span class="w"> </span><span class="m">1</span>
+<span class="w"> </span><span class="m">2</span>
+<span class="w"> </span><span class="m">3</span>
 </pre></div>
 </div>
 <p>If you see an error message like <code class="docutils literal notranslate"><span class="pre">stdin:1:</span> <span class="pre">module</span> <span class="pre">'fun'</span> <span class="pre">not</span> <span class="pre">found:</span></code> then
@@ -191,79 +189,79 @@ you need to configure you Package Path (<code class="docutils literal notranslat
 <a class="reference external" href="http://lua-users.org/wiki/PackagePath">Lua Wiki</a> for additional information.</p>
 <p><strong>Lua Fun</strong> designed to be small ubiquitous library. It is a good idea to import
 all library functions to the global table:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="hll"> &gt; <span class="k">for</span> k, v <span class="k">in</span> pairs<span class="o">(</span>require <span class="s2">&quot;fun&quot;</span><span class="o">)</span> <span class="k">do</span> _G<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> v end -- import fun.*
-</span> &gt; <span class="k">for</span> _k, a <span class="k">in</span> range<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="k">do</span> print<span class="o">(</span>a<span class="o">)</span> end
- <span class="m">0</span>
- <span class="m">1</span>
- <span class="m">2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="w"> </span>&gt;<span class="w"> </span><span class="k">for</span><span class="w"> </span>k,<span class="w"> </span>v<span class="w"> </span><span class="k">in</span><span class="w"> </span>pairs<span class="o">(</span>require<span class="w"> </span><span class="s2">&quot;fun&quot;</span><span class="o">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>_G<span class="o">[</span>k<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>v<span class="w"> </span>end<span class="w"> </span>--<span class="w"> </span>import<span class="w"> </span>fun.*
+</span><span class="w"> </span>&gt;<span class="w"> </span><span class="k">for</span><span class="w"> </span>_k,<span class="w"> </span>a<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>print<span class="o">(</span>a<span class="o">)</span><span class="w"> </span>end
+<span class="w"> </span><span class="m">0</span>
+<span class="w"> </span><span class="m">1</span>
+<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
 <p><strong>Lua Fun</strong> also provides a special <strong>shortcut</strong> to autoimport all functions:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="hll"> &gt; require <span class="s1">&#39;fun&#39;</span><span class="o">()</span> -- to import all lua.* functions to globals
-</span> &gt; each<span class="o">(</span>print, range<span class="o">(</span><span class="m">5</span><span class="o">))</span>
- <span class="m">1</span>
- <span class="m">2</span>
- <span class="m">3</span>
- <span class="m">4</span>
- <span class="m">5</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="w"> </span>&gt;<span class="w"> </span>require<span class="w"> </span><span class="s1">&#39;fun&#39;</span><span class="o">()</span><span class="w"> </span>--<span class="w"> </span>to<span class="w"> </span>import<span class="w"> </span>all<span class="w"> </span>lua.*<span class="w"> </span>functions<span class="w"> </span>to<span class="w"> </span>globals
+</span><span class="w"> </span>&gt;<span class="w"> </span>each<span class="o">(</span>print,<span class="w"> </span>range<span class="o">(</span><span class="m">5</span><span class="o">))</span>
+<span class="w"> </span><span class="m">1</span>
+<span class="w"> </span><span class="m">2</span>
+<span class="w"> </span><span class="m">3</span>
+<span class="w"> </span><span class="m">4</span>
+<span class="w"> </span><span class="m">5</span>
 </pre></div>
 </div>
 <p>Now you can use <strong>Lua Fun</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; print<span class="o">(</span>sum<span class="o">(</span>filter<span class="o">(</span><span class="k">function</span><span class="o">(</span>x<span class="o">)</span> <span class="k">return</span> x % <span class="nv">16</span> <span class="o">==</span> <span class="m">0</span> end, range<span class="o">(</span><span class="m">10000</span><span class="o">))))</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>print<span class="o">(</span>sum<span class="o">(</span>filter<span class="o">(</span><span class="k">function</span><span class="o">(</span>x<span class="o">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span>x<span class="w"> </span>%<span class="w"> </span><span class="nv">16</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>end,<span class="w"> </span>range<span class="o">(</span><span class="m">10000</span><span class="o">))))</span>
 <span class="m">3130000</span>
 
-&gt; each<span class="o">(</span>print, take<span class="o">(</span><span class="m">5</span>, tabulate<span class="o">(</span>math.sin<span class="o">)))</span>
+&gt;<span class="w"> </span>each<span class="o">(</span>print,<span class="w"> </span>take<span class="o">(</span><span class="m">5</span>,<span class="w"> </span>tabulate<span class="o">(</span>math.sin<span class="o">)))</span>
 <span class="m">0</span>
 <span class="m">2</span>
 <span class="m">4</span>
 <span class="m">6</span>
 <span class="m">8</span>
 
-&gt; each<span class="o">(</span>print, enumerate<span class="o">(</span>zip<span class="o">({</span><span class="s2">&quot;one&quot;</span>, <span class="s2">&quot;two&quot;</span>, <span class="s2">&quot;three&quot;</span>, <span class="s2">&quot;four&quot;</span>, <span class="s2">&quot;five&quot;</span><span class="o">}</span>,
-    <span class="o">{</span><span class="s2">&quot;a&quot;</span>, <span class="s2">&quot;b&quot;</span>, <span class="s2">&quot;c&quot;</span>, <span class="s2">&quot;d&quot;</span>, <span class="s2">&quot;e&quot;</span><span class="o">})))</span>
-<span class="m">1</span>       one     a
-<span class="m">2</span>       two     b
-<span class="m">3</span>       three   c
-<span class="m">4</span>       four    d
-<span class="m">5</span>       five    e
+&gt;<span class="w"> </span>each<span class="o">(</span>print,<span class="w"> </span>enumerate<span class="o">(</span>zip<span class="o">({</span><span class="s2">&quot;one&quot;</span>,<span class="w"> </span><span class="s2">&quot;two&quot;</span>,<span class="w"> </span><span class="s2">&quot;three&quot;</span>,<span class="w"> </span><span class="s2">&quot;four&quot;</span>,<span class="w"> </span><span class="s2">&quot;five&quot;</span><span class="o">}</span>,
+<span class="w">    </span><span class="o">{</span><span class="s2">&quot;a&quot;</span>,<span class="w"> </span><span class="s2">&quot;b&quot;</span>,<span class="w"> </span><span class="s2">&quot;c&quot;</span>,<span class="w"> </span><span class="s2">&quot;d&quot;</span>,<span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="o">})))</span>
+<span class="m">1</span><span class="w">       </span>one<span class="w">     </span>a
+<span class="m">2</span><span class="w">       </span>two<span class="w">     </span>b
+<span class="m">3</span><span class="w">       </span>three<span class="w">   </span>c
+<span class="m">4</span><span class="w">       </span>four<span class="w">    </span>d
+<span class="m">5</span><span class="w">       </span>five<span class="w">    </span>e
 
-&gt; <span class="nv">lines_to_grep</span> <span class="o">=</span> <span class="o">{</span>
-    <span class="o">[[</span>Emily<span class="o">]]</span>,
-    <span class="o">[[</span>Chloe<span class="o">]]</span>,
-    <span class="o">[[</span>Megan<span class="o">]]</span>,
-    <span class="o">[[</span>Jessica<span class="o">]]</span>,
-    <span class="o">[[</span>Emma<span class="o">]]</span>,
-    <span class="o">[[</span>Sarah<span class="o">]]</span>,
-    <span class="o">[[</span>Elizabeth<span class="o">]]</span>,
-    <span class="o">[[</span>Sophie<span class="o">]]</span>,
-    <span class="o">[[</span>Olivia<span class="o">]]</span>,
-    <span class="o">[[</span>Lauren<span class="o">]]</span>
+&gt;<span class="w"> </span><span class="nv">lines_to_grep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="o">[[</span>Emily<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Chloe<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Megan<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Jessica<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Emma<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Sarah<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Elizabeth<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Sophie<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Olivia<span class="o">]]</span>,
+<span class="w">    </span><span class="o">[[</span>Lauren<span class="o">]]</span>
 <span class="o">}</span>
 
-&gt; each<span class="o">(</span>print, grep<span class="o">(</span><span class="s2">&quot;Em&quot;</span>, lines_to_grep<span class="o">))</span>
+&gt;<span class="w"> </span>each<span class="o">(</span>print,<span class="w"> </span>grep<span class="o">(</span><span class="s2">&quot;Em&quot;</span>,<span class="w"> </span>lines_to_grep<span class="o">))</span>
 Emily
 Emma
 
-&gt; each<span class="o">(</span>print, take<span class="o">(</span><span class="m">10</span>, cycle<span class="o">(</span>chain<span class="o">(</span>
-    <span class="o">{</span>enumerate<span class="o">({</span><span class="s2">&quot;a&quot;</span>, <span class="s2">&quot;b&quot;</span>, <span class="s2">&quot;c&quot;</span><span class="o">})}</span>,
-    <span class="o">{</span><span class="s2">&quot;one&quot;</span>, <span class="s2">&quot;two&quot;</span>, <span class="s2">&quot;three&quot;</span><span class="o">}))</span>
-  <span class="o">))</span>
-<span class="m">0</span> a
-<span class="m">1</span> b
-<span class="m">2</span> c
+&gt;<span class="w"> </span>each<span class="o">(</span>print,<span class="w"> </span>take<span class="o">(</span><span class="m">10</span>,<span class="w"> </span>cycle<span class="o">(</span>chain<span class="o">(</span>
+<span class="w">    </span><span class="o">{</span>enumerate<span class="o">({</span><span class="s2">&quot;a&quot;</span>,<span class="w"> </span><span class="s2">&quot;b&quot;</span>,<span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="o">})}</span>,
+<span class="w">    </span><span class="o">{</span><span class="s2">&quot;one&quot;</span>,<span class="w"> </span><span class="s2">&quot;two&quot;</span>,<span class="w"> </span><span class="s2">&quot;three&quot;</span><span class="o">}))</span>
+<span class="w">  </span><span class="o">))</span>
+<span class="m">0</span><span class="w"> </span>a
+<span class="m">1</span><span class="w"> </span>b
+<span class="m">2</span><span class="w"> </span>c
 one
 two
 three
-<span class="m">0</span> a
-<span class="m">1</span> b
-<span class="m">2</span> c
+<span class="m">0</span><span class="w"> </span>a
+<span class="m">1</span><span class="w"> </span>b
+<span class="m">2</span><span class="w"> </span>c
 one
 </pre></div>
 </div>
 <p>Please note that functions support multireturn.</p>
 </section>
 <section id="further-actions">
-<h2><a class="toc-backref" href="#id12">Further Actions</a><a class="headerlink" href="#further-actions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Further Actions</a><a class="headerlink" href="#further-actions" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Take a look on <a class="reference internal" href="reference.html"><span class="doc">API Reference</span></a>.</p></li>
 <li><p>Use <a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a> to find functions by its names.</p></li>
@@ -295,7 +293,7 @@ one
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
