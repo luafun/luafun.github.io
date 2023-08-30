@@ -1,25 +1,23 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Basic Functions &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Generators" href="generators.html" />
     <link rel="prev" title="API Reference" href="reference.html" /> 
   </head><body>
-      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Basic Functions</span></h2>
       </div>
@@ -38,7 +36,7 @@
         
         
   <section id="basic-functions">
-<h1>Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h1>
+<h1>Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this heading">¶</a></h1>
 <p>The section contains functions to create iterators from Lua objects.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="fun.iter">
@@ -50,7 +48,7 @@
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> – <a class="reference internal" href="under_the_hood.html#iterator-triplet"><span class="std std-ref">iterator triplet</span></a></p>
 </dd>
 </dl>
@@ -60,10 +58,10 @@ The function is a generalized version of <code class="xref py py-func docutils l
 check to detect maps. For arrays <code class="docutils literal notranslate"><span class="pre">ipairs</span></code> is used. For maps a modified
 version of <code class="docutils literal notranslate"><span class="pre">pairs</span></code> is used that also returns keys. Userdata objects
 are handled in the same way as tables.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">LUAJIT_ENABLE_LUA52COMPAT</span></code> <a class="footnote-reference brackets" href="#luajit-lua52compat" id="id1">1</a> mode is enabled and
+<p>If <code class="docutils literal notranslate"><span class="pre">LUAJIT_ENABLE_LUA52COMPAT</span></code> <a class="footnote-reference brackets" href="#luajit-lua52compat" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> mode is enabled and
 argument has metamethods <code class="docutils literal notranslate"><span class="pre">__pairs</span></code> (for maps) or <code class="docutils literal notranslate"><span class="pre">__ipairs</span></code> for (arrays),
 call it with the table or userdata as argument and return the first three
-results from the call <a class="footnote-reference brackets" href="#lua52-ipairs" id="id2">2</a>.</p>
+results from the call <a class="footnote-reference brackets" href="#lua52-ipairs" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>All library iterator are suitable to use with Lua’s <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loop.</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kr">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">a</span> <span class="kr">in</span> <span class="n">iter</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span> <span class="kr">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="kr">end</span>
 <span class="mi">1</span>
@@ -122,14 +120,16 @@ function:</p>
 </div>
 <p>Iterators can return multiple values.</p>
 <p>Check out <a class="reference internal" href="under_the_hood.html"><span class="doc">Under the Hood</span></a> section for more details.</p>
-<dl class="footnote brackets">
-<dt class="label" id="luajit-lua52compat"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="http://luajit.org/extensions.html">http://luajit.org/extensions.html</a></p>
-</dd>
-<dt class="label" id="lua52-ipairs"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#pdf-ipairs">http://www.lua.org/manual/5.2/manual.html#pdf-ipairs</a></p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="luajit-lua52compat" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://luajit.org/extensions.html">http://luajit.org/extensions.html</a></p>
+</aside>
+<aside class="footnote brackets" id="lua52-ipairs" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#pdf-ipairs">http://www.lua.org/manual/5.2/manual.html#pdf-ipairs</a></p>
+</aside>
+</aside>
 </dd></dl>
 
 <dl class="py function">
@@ -138,7 +138,7 @@ function:</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:each(fun)</span></span></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>none</p>
 </dd>
 </dl>
@@ -205,7 +205,7 @@ to functions like <a class="reference internal" href="transformations.html#fun.m
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -1,25 +1,23 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Under the Hood &#8212; Lua Functional 0.1.3 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="About" href="about.html" />
     <link rel="prev" title="Operators" href="operators.html" /> 
   </head><body>
-      <div class="header" role="banner"><img class="rightlogo" src="_static/logo.png" alt="Logo"/><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Lua Functional 0.1.3 documentation</span></a></h1>
         <h2 class="heading"><span>Under the Hood</span></h2>
       </div>
@@ -38,20 +36,20 @@
         
         
   <section id="under-the-hood">
-<h1>Under the Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this headline">¶</a></h1>
+<h1>Under the Hood<a class="headerlink" href="#under-the-hood" title="Permalink to this heading">¶</a></h1>
 <p>The section sheds some light on the internal library structure and working
 principles.</p>
 <section id="iterators">
-<h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
+<h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this heading">¶</a></h2>
 <p>Another basic primitive of the library (after functions) is the iterator. Most functions
 take an iterator and return a new iterator or several ones. Iterators all the way down!
-<a class="footnote-reference brackets" href="#id8" id="id1">1</a>.</p>
+<a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>The simplest iterators are (surprise!) the <code class="xref py py-func docutils literal notranslate"><span class="pre">pairs()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code>
 Lua functions. Have you ever tried calling, say, the <code class="xref py py-func docutils literal notranslate"><span class="pre">ipairs()</span></code> function
 without using it inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop? Try to do that on any Lua
 implementation:</p>
-<div class="highlight-bash notranslate" id="iterator-triplet"><div class="highlight"><pre><span></span>&gt; <span class="o">=</span>ipairs<span class="o">({</span><span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;b&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">})</span>
-<span class="k">function</span>: builtin#6     table: 0x40f80e38       <span class="m">0</span>
+<div class="highlight-bash notranslate" id="iterator-triplet"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span><span class="o">=</span>ipairs<span class="o">({</span><span class="s1">&#39;a&#39;</span>,<span class="w"> </span><span class="s1">&#39;b&#39;</span>,<span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="o">})</span>
+<span class="k">function</span>:<span class="w"> </span>builtin#6<span class="w">     </span>table:<span class="w"> </span>0x40f80e38<span class="w">       </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>The function returned three strange values which look useless without a <code class="docutils literal notranslate"><span class="pre">for</span></code>
@@ -85,12 +83,12 @@ the <code class="docutils literal notranslate"><span class="pre">nil</span></cod
 It is just a nice trick to get <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> loops working in Lua.</p>
 </section>
 <section id="iterations">
-<h2>Iterations<a class="headerlink" href="#iterations" title="Permalink to this headline">¶</a></h2>
+<h2>Iterations<a class="headerlink" href="#iterations" title="Permalink to this heading">¶</a></h2>
 <p>What happens when you type the following code into a Lua console:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_it</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">})</span> <span class="n">do</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">end</span>
 </pre></div>
 </div>
-<p>According to Lua reference manual <a class="footnote-reference brackets" href="#lua-for" id="id2">2</a> the code above is equivalent to:</p>
+<p>According to Lua reference manual <a class="footnote-reference brackets" href="#lua-for" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> the code above is equivalent to:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>do
     -- Initialize the iterator
     local gen, param, state = ipairs({&#39;a&#39;, &#39;b&#39;, &#39;c&#39;})
@@ -121,11 +119,11 @@ return a new modified iterator</p></li>
 and <code class="docutils literal notranslate"><span class="pre">ipairs</span></code>.</p>
 </section>
 <section id="iterator-types">
-<h2>Iterator Types<a class="headerlink" href="#iterator-types" title="Permalink to this headline">¶</a></h2>
+<h2>Iterator Types<a class="headerlink" href="#iterator-types" title="Permalink to this heading">¶</a></h2>
 <section id="pure-functional-iterators">
-<h3>Pure functional iterators<a class="headerlink" href="#pure-functional-iterators" title="Permalink to this headline">¶</a></h3>
+<h3>Pure functional iterators<a class="headerlink" href="#pure-functional-iterators" title="Permalink to this heading">¶</a></h3>
 <p>Iterators can be either purely functional or have some side effects and return
-different values for the same initial conditions <a class="footnote-reference brackets" href="#pure-function" id="id3">3</a>. An <strong>iterator is
+different values for the same initial conditions <a class="footnote-reference brackets" href="#pure-function" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. An <strong>iterator is
 purely functional</strong> if it meets the following criteria:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">gen</span></code> function always returns the same values for the same <code class="docutils literal notranslate"><span class="pre">param</span></code> and
@@ -139,17 +137,17 @@ can be safety cloned or reapplied without creating side effects. Many library
 function use these properties.</p>
 </section>
 <section id="finite-iterators">
-<h3>Finite iterators<a class="headerlink" href="#finite-iterators" title="Permalink to this headline">¶</a></h3>
+<h3>Finite iterators<a class="headerlink" href="#finite-iterators" title="Permalink to this heading">¶</a></h3>
 <p>Iterators can be <strong>finite</strong> (sooner or later end up) or <strong>infinite</strong>
 (never end).
 Since there is no way to determine automatically if an iterator is finite or
-not <a class="footnote-reference brackets" href="#turing" id="id4">4</a> the library function can not automatically resolve infinite
+not <a class="footnote-reference brackets" href="#turing" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> the library function can not automatically resolve infinite
 loops. It is your obligation not to pass infinite iterators to reducing
 functions.</p>
 </section>
 </section>
 <section id="tracing-jit">
-<h2>Tracing JIT<a class="headerlink" href="#tracing-jit" title="Permalink to this headline">¶</a></h2>
+<h2>Tracing JIT<a class="headerlink" href="#tracing-jit" title="Permalink to this heading">¶</a></h2>
 <p>Tracing just-in-time compilation is a technique used by virtual machines to
 optimize the execution of a program at runtime. This is done by recording a
 linear sequence of frequently executed operations, compiling them to native
@@ -159,34 +157,41 @@ identified, a special tracing mode is entered which records all executed
 operations of that loop. This sequence of operations is called a <strong>trace</strong>.
 The trace is then optimized and compiled to machine code. When this
 loop is executed again the compiled trace is called instead of the program
-counterpart <a class="footnote-reference brackets" href="#id9" id="id5">5</a>.</p>
+counterpart <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
 <p>Why is tracing JIT important for us? The LuaJIT tracing compiler can detect
-tail-, up- and down-recursion <a class="footnote-reference brackets" href="#luajit-recursion" id="id6">6</a>, unroll compositions of
-functions and inline high-order functions <a class="footnote-reference brackets" href="#luajit-optimizations" id="id7">7</a>.
+tail-, up- and down-recursion <a class="footnote-reference brackets" href="#luajit-recursion" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, unroll compositions of
+functions and inline high-order functions <a class="footnote-reference brackets" href="#luajit-optimizations" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
 All of these concepts make the foundation for functional programming.</p>
-<dl class="footnote brackets">
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Turtles_all_the_way_down">http://en.wikipedia.org/wiki/Turtles_all_the_way_down</a></p>
-</dd>
-<dt class="label" id="lua-for"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.3.5">http://www.lua.org/manual/5.2/manual.html#3.3.5</a></p>
-</dd>
-<dt class="label" id="pure-function"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Pure_function">http://en.wikipedia.org/wiki/Pure_function</a></p>
-</dd>
-<dt class="label" id="turing"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Halting_problem">Proved by Turing</a></p>
-</dd>
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation">http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation</a></p>
-</dd>
-<dt class="label" id="luajit-recursion"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p><a class="reference external" href="http://lambda-the-ultimate.org/node/3851#comment-57679">http://lambda-the-ultimate.org/node/3851#comment-57679</a></p>
-</dd>
-<dt class="label" id="luajit-optimizations"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
-<dd><p><a class="reference external" href="http://wiki.luajit.org/Optimizations">http://wiki.luajit.org/Optimizations</a></p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Turtles_all_the_way_down">http://en.wikipedia.org/wiki/Turtles_all_the_way_down</a></p>
+</aside>
+<aside class="footnote brackets" id="lua-for" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://www.lua.org/manual/5.2/manual.html#3.3.5">http://www.lua.org/manual/5.2/manual.html#3.3.5</a></p>
+</aside>
+<aside class="footnote brackets" id="pure-function" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Pure_function">http://en.wikipedia.org/wiki/Pure_function</a></p>
+</aside>
+<aside class="footnote brackets" id="turing" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Halting_problem">Proved by Turing</a></p>
+</aside>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation">http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation</a></p>
+</aside>
+<aside class="footnote brackets" id="luajit-recursion" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://lambda-the-ultimate.org/node/3851#comment-57679">http://lambda-the-ultimate.org/node/3851#comment-57679</a></p>
+</aside>
+<aside class="footnote brackets" id="luajit-optimizations" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://wiki.luajit.org/Optimizations">http://wiki.luajit.org/Optimizations</a></p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -207,7 +212,7 @@ All of these concepts make the foundation for functional programming.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2013-2021, Roman Tsisyk.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
     <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
