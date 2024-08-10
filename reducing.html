@@ -112,16 +112,13 @@ Equivalent to:</p>
 <span class="sig-prename descclassname"><span class="pre">fun.</span></span><span class="sig-name descname"><span class="pre">length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fun.length" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">iterator:length()</span></span></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a number of elements in <code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.</p>
-</dd>
-</dl>
-<p>Return a number of elements in <code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.
-This function is equivalent to <code class="docutils literal notranslate"><span class="pre">#obj</span></code> for basic array and string iterators.</p>
+<dd><p>Return a number of remaining elements in <code class="docutils literal notranslate"><span class="pre">gen,</span> <span class="pre">param,</span> <span class="pre">state</span></code> iterator.</p>
 <p>Examples:</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}))</span>
 <span class="mi">5</span>
+
+<span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">drop_n</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">})))</span>
+<span class="mi">2</span>
 
 <span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">({}))</span>
 <span class="mi">0</span>
@@ -138,7 +135,7 @@ result an infinite loop.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This function has <code class="docutils literal notranslate"><span class="pre">O(n)</span></code> complexity for all iterators except
-basic array and string iterators.</p>
+basic array and string iterators, where it has <code class="docutils literal notranslate"><span class="pre">O(1)</span></code> complexity.</p>
 </div>
 </dd></dl>
 
